@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_8</title>
+</head>
+<body>
+<h1>Элементы для ввода цвета, url, email, елефона</h1>
+<div>
+    <h2>Установка цвета</h2>
+    <form>
+    <p>
+    <label for="favcolor"></label>
+    <input type="color" id="favcolor" name="favcolor">
+    </p>
+    <p>
+        <label for="favcolor1">Выберите цвет</label>
+        <input type="color" list="colors" id="favcolor1" name="favcolor1">
+    </p>
+    <datalist id="colors">
+        <option value="#0000FF" label="blue"></option>
+        <option value="#008000" label="green"></option>
+        <option value="#ff0000" label="red"></option>
+    </datalist>
+        <p>
+            <button type="submit">Отправить</button>
+        </p>
+    </form>
+</div>
+<div>
+    <h2>Поля для ввода url, email, телефона</h2>
+    <form>
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" placeholder="user@gmail.com" id="email" name="email">
+    </p>
+    <p>
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password">
+    </p>
+    <p>
+        <button type="submit">Отправить</button>
+    </p>
+    </form>
+</div>
+</body>
+</html>

@@ -7,6 +7,7 @@
 <body>
 <div>
 <h1>Элементы для ввода чисел</h1>
+    <form>
     <p>
         <label for="age">Возраст: </label>
         <input type="number" id="age" step="1" min="1" max="100" value="10" name="age">
@@ -14,6 +15,37 @@
     <p>
         <button type="submit">Отправить</button>
     </p>
+    </form>
+</div>
+<div>
+    <form>
+    <p>
+        <label for="price">Цена:</label>
+        <input type="number" list="pricelist"
+        step="1000" min="3000" max="100000" value="10000" id="price" name="price">
+    </p>
+        <p>
+            <button type="submit">Отправить</button>
+        </p>
+    </form>
+    <datalist id="pricelist">
+        <option value="15000"></option>
+        <option value="20000"></option>
+        <option value="25000"></option>
+    </datalist>
+</div>
+<div>
+    <form>
+            <p>
+                <label for="price1">Цена:</label>
+                1
+                <input type="range" step="1" min="0" max="100" value="10" id="price1" name="price1">
+                100
+            </p>
+        <p>
+            <button type="submit">Отправить</button>
+        </p>
+    </form>
 </div>
 </body>
 </html>
