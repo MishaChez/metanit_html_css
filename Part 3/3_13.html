@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_13</title>
+</head>
+<body>
+<h1>Валидация форм</h1>
+<h2 style="color: blue">Атрибут required</h2>
+<form method="get">
+    <p>
+        <label for="login">Логин:</label>
+        <input type="text" required id="login" name="login">
+    </p>
+    <p>
+        <label for="password">Пароль:</label>
+        <input type="password" required id="password" name="password">
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" placeholder="user@gmail.com" required id="email" name="Email">
+    </p>
+    <p>
+        <input type="submit" value="Отправить">
+    </p>
+</form>
+<h2 style="color: blue">Атрибуты max и min</h2>
+<form method="get">
+    <p>
+        <label for="age">Возраст:</label>
+        <input type="number" min="10" max="100" value="18" id="age" name="age">
+    </p>
+    <p>
+        <input type="submit" value="Отправить">
+    </p>
+</form>
+<h2 style="color: blue">Атрибут pattern</h2>
+<form method="get">
+    <p>
+        <label for="phone">Телефон:</label>
+        <input type="text" placeholder="+375292860218"
+        pattern="\+\d{3}\d{2}\d{7}" id="phone" name="phone">
+    </p>
+    <p>
+        <input type="submit" value="Отправить">
+    </p>
+</form>
+</body>
+</html>
