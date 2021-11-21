@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>5_6_2</title>
+    <style>
+        .warning::before {
+            content: "Важно! " ;
+            font-weight: bold;
+        }
+        .warning::after {
+            content: "Будьте осторожны!";
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h2>псевдоэлементы before и after:</h2>
+<p><b>::before:</b> добавляет сообщение до определенного элемента</p>
+<p><b>::after:</b> добавляет сообщение после определенного элемента</p>
+<p><span class="warning">Не пытайтесь засунуть язык в электрическую розетку.</span></p>
+</body>
+</html>

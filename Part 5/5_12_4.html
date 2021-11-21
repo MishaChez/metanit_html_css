@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_12_4</title>
+    <style>
+        input:invalid {
+            border: 2px solid red;
+        }
+        input:valid {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+<h2>Псевдоклассы valid и invalid</h2>
+<p>Псевдоклассы <i>:valid</i> и <i>:invalid</i> стилизуют элементы формы в зависимости от того, проходят они валидацию или нет.</p>
+<form method="get">
+    <p>
+        <label for="login">Логин:</label>
+        <input type="text" id="login" name="login" placeholder="Введите логин" required>
+    </p>
+    <p>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+    </p>
+    <input type="submit" value="Войти">
+</form>
+</body>
+</html>

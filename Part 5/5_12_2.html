@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_12_2</title>
+    <style>
+        :checked + span {
+            color: blue;
+            font-weight: bold; /* выделение жирным */
+        }
+    </style>
+</head>
+<body>
+<h2>Псевдокласс checked</h2>
+<p>Псевдокласс <i>checked</i> стилизует элементы формы, у которых установлен атрибут checked:</p>
+<p>Селектор <i>:checked + span</i> позволяет выбрать элемент, соседний с отмеченным элементом формы.</p>
+<form method="get">
+<h3>Выберите технологию</h3>
+<p>
+    <label for="html5"></label>
+    <input type="checkbox" checked id="html5" name="html5"><span>html5</span>
+</p>
+<p>
+    <label for="dotnet"></label>
+    <input type="checkbox" id="dotnet" name="dotnet"><span>.net</span>
+</p>
+<p>
+    <label for="java"></label>
+    <input type="checkbox" id="java" name="java"><span>Java</span>
+</p>
+<h3>Укажите пол</h3>
+<p>
+    <label for="man"></label>
+    <input type="radio" id="man" value="man" checked name="gender"><span>мужской</span>
+</p>
+<p>
+    <label for="woman"></label>
+    <input type="radio" id="woman" value="woman" name="gender"><span>женский</span>
+</p>
+<p>
+    <input type="submit" value="Отправить">
+</p>
+</form>
+</body>
+</html>
