@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_10_2</title>
+    <style>
+        a {font-size: 18px}
+        .nav li a {color: red;} /* красный цвет текста */
+        #menu a {color: navy;} /* темно-синий цвет текста */
+        .nav .menuItem {color: green !important; }
+        a.menuItem:not(.newsLink) {color: orange;}
+        div ul li a {color: grey}
+    </style>
+</head>
+<body>
+<h2>Каскадность стилей в CSS3</h2>
+<div id="menu">
+    <ul class="nav">
+        <li><a class="menuItem">Главная</a></li>
+        <li><a class="menuItem">Форум</a></li>
+        <li><a class="menuItem">Блог</a></li>
+        <li><a class="menuItem">О сайте</a></li>
+    </ul>
+</div>
+</body>
+</html>
