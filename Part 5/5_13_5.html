@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_13_5</title>
+    <style>
+        div > :where(h2, #content) { background: red; }
+
+        div > h2,
+        div > #content {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div><p>Теперь изменим на :where():</p></div>
+<div>
+    <h2>Заголовок</h2>
+    <div id="content">Основное содержимое</div>
+</div>
+</body>
+</html>
