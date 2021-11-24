@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_15</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+        body {
+            color: silver;
+            font-family: Roboto;
+            overflow:scroll;    /* добавляем прокрутку  */
+            width: 65%;
+            margin: 15%;
+
+            background-image: url("fon.png");
+            background-size: 523px 191px;
+            background-attachment: fixed;
+            background-repeat: round;
+        }
+        div.codeblock {
+            background-color: #eeeeee;
+            color: black;
+            margin: 10px;
+            padding: 10px;
+            width:50% ;
+            border: 2px solid slategrey;
+        }
+        ul.li {list-style-type: none}
+        div.divshadow{
+            width: 128px;
+            height: 96px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+            box-shadow: 10px 4px 10px 3px #888;
+        }
+
+    </style>
+</head>
+<body>
+<h2>Создание тени у элемента</h2>
+<p>Свойство <b>box-shadow</b> позволяет создать у элемента тень. Это свойство может принимать сразу несколько значений:</p>
+<div class="codeblock">
+    box-shadow: hoffset voffset blur spread color inset
+</div>
+<ul>
+    <li><b>hoffset:</b> горизонтальное смещение тени относительно элемента. При положительном значении тень смещается вправо, а при отрицательном - влево</li>
+    <li><b>voffset:</b> вертикальное смещение тени относительно элемента. При положительном значении тень смещается вниз, а при отрицательном - вверх</li>
+    <li><b>blur:</b> необязательное значение, которое определяет радиус размытия тени. Чем больше это значение, тем более размытыми будут края тени. По умолчанию имеет значение 0.</li>
+    <li><b>spread:</b> необязательное значение, которое определяет направление тени. Положительное значение распространяет тень во вне во всех направлениях от элемента, а отрицательное значение направляет тень к элементу</li>
+    <li><b>color:</b> необязательное значение, которое устанавливает цвет тени</li>
+    <li><b>inset:</b> необязательное значение, которое заставляет рисовать тент внутри блока элемента</li>
+</ul>
+<p>Например</p>
+<div class="codeblock">
+    <ul class="li">
+        <li>div{</li>
+        <li>width: 128px;</li>
+        <li>height: 96px;</li>
+        <li>margin: 20px;</li>
+        <li>border: 1px solid #ccc;</li>
+        <li>background-color: #eee;</li>
+        <li>box-shadow: 10px 4px 10px 3px #888;</li>
+        <li>}</li>
+    </ul>
+</div>
+<div class="divshadow"></div>
+<p>Через запятую можно определить несколько различных теней:</p>
+<div class="codeblock">box-shadow: 5px 3px 8px 3px #faa, 10px 4px 10px 3px #888 inset;</div>
+
+</body>
+</html>

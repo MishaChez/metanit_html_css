@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_7</title>
+    <style>
+        ul.disk {list-style-type: disc}
+        ul.circle {list-style-type: circle}
+        ul.square {list-style-type: square}
+        ul.decimal {list-style-type: decimal}
+        ul.decimal-leading-zero {list-style-type: decimal-leading-zero}
+        ul.lower-roman {list-style-type: lower-roman}
+        ul.upper-roman {list-style-type: upper-roman}
+        ul.lower-alpha {list-style-type: lower-alpha}
+        ul.upper-alpha {list-style-type: upper-roman}
+        ul.none {list-style-type: none}
+        ul.outside {list-style-position: outside}
+        ul.inside {list-style-position: inside}
+        ul.liststyleimage {list-style-image:url("1.jpg")}
+
+    </style>
+</head>
+<body>
+<h2>Стилизация списков</h2>
+<h3>list-style-type</h3>
+<p>CSS предоставляет специальные свойства по стилизации списков. Одним из таких свойств является <b>list-style-type</b>. Оно может принимать следующие значения для нумерованных списков:</p>
+<ul>
+    <li><b>decimal:</b> десятичные числа, отсчет идет от 1</li>
+    <li><b>decimal-leading-zero:</b> десятичные числа, которые предваряются нулем, например, 01, 02, 03, … 98, 99</li>
+    <li><b>lower-roman:</b> строчные латинские цифры, например, i, ii, iii, iv, v</li>
+    <li><b>upper-roman:</b> заглавные латинские цифры, например, I, II, III, IV, V…</li>
+    <li><b>lower-alpha:</b> строчные латинские буквы, например, a, b, c..., z</li>
+    <li><b>upper-alpha:</b> заглавные латинские буквы, например, A, B, C, … Z</li>
+</ul>
+<p>Для ненумерованных списков:</p>
+<ul>
+    <li><b>disc:</b> черный диск</li>
+    <li><b>circle:</b> пустой кружочек</li>
+    <li><b>square:</b> черный квадратик</li>
+</ul>
+<h4>disk</h4>
+<ul class="disk">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>circle</h4>
+<ul class="circle">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>square</h4>
+<ul class="square">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>decimal</h4>
+<ul class="decimal">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>decimal-leading-zero</h4>
+<ul class="decimal-leading-zero">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>lower-roman</h4>
+<ul class="lower-roman">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>upper-roman</h4>
+<ul class="upper-roman">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>lower-alpha</h4>
+<ul class="lower-alpha">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>upper-alpha</h4>
+<ul class="upper-alpha">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h4>None</h4>
+<ul class="none">
+    <li>Элемент 1</li>
+    <li>Элемент 2</li>
+    <li>Элемент 3</li>
+</ul>
+<h3>list-style-position</h3>
+<p>Веб-браузеры обычно отображают маркеры списка слева от элементов списка. С помощью свойства <b>list-style-position</b> мы можем настроить их позиционирование. Это свойство принимает два значения: outside (по умолчанию) и inside (обеспечивает равномерное распределение по ширине).</p>
+<h4>inside</h4>
+<ul class="inside">
+    <li>Он стал прислушиваться и услыхал звуки приближающегося топота лошадей и звуки голосов...</li>
+    <li>Он стал прислушиваться и услыхал звуки приближающегося топота лошадей и звуки голосов...</li>
+    <li>Он стал прислушиваться и услыхал звуки приближающегося топота лошадей и звуки голосов...</li>
+</ul>
+<h4>outside</h4>
+<ul class="outside">
+    <li>Он стал прислушиваться и услыхал звуки приближающегося топота лошадей и звуки голосов...</li>
+    <li>Он стал прислушиваться и услыхал звуки приближающегося топота лошадей и звуки голосов...</li>
+    <li>Он стал прислушиваться и услыхал звуки приближающегося топота лошадей и звуки голосов...</li>
+</ul>
+<h3>list-style-image</h3>
+<ul class="liststyleimage">
+    <li>элемент 1</li>
+    <li>элемент 2</li>
+    <li>элемент 3</li>
+</ul>
+</body>
+</html>

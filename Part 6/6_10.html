@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_10</title>
+  <style>
+    div.var1{
+        margin-top: 30px; /* отступ сверху */
+        margin-left: 25px; /* отступ слева */
+        margin-right: 20px; /* отступ справа */
+        margin-bottom: 15px; /* отступ снизу */
+
+        border: 3px solid black; /* Граница */
+    }
+    div.var2 {
+        margin: 40px 30px 20px 10px; /* сверху-справа-снизу-слева */
+
+        border: 4px solid green;
+    }
+    div.var3 {
+        margin: 25px;
+
+        border: 5px solid blue;
+    }
+  </style>
+</head>
+<body>
+<div>
+<h2>Внешние отступы</h2>
+<p>Свойство <b>margin</b> определяет отступ элемента от других элементов или границы внешнего контейнера. Существуют специальные свойства CSS для задания отступов для каждой стороны:</p>
+<ul>
+    <li><b>margin-top:</b> отступ сверху</li>
+    <li><b>margin-bottom:</b> отступ снизу</li>
+    <li><b>margin-left:</b> отступ слева</li>
+    <li><b>margin-right:</b> отступ справа</li>
+</ul>
+</div>
+<div class="var1">
+    <p>Первый блок</p>
+</div>
+<div class="var1">
+    <p>Второй блок</p>
+</div>
+<div class="var1">
+    <p>Третий блок</p>
+</div>
+<p>Можно вместо четырех свойств задать одно:</p>
+<div class="var2">
+    <p>Первый блок</p>
+</div>
+<div class="var2">
+    <p>Второй блок</p>
+</div>
+<div class="var2">
+    <p>Третий блок</p>
+</div>
+<p>Если значения для всех четырех отступов совпадает, то мы можем указать только одно значение:</p>
+<div class="var3">
+    <p>Первый блок</p>
+</div>
+<div class="var3">
+    <p>Второй блок</p>
+</div>
+<div class="var3">
+    <p>Третий блок</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_14</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+        body {
+            color: silver;
+            font-family: Roboto;
+            overflow:scroll;    /* добавляем прокрутку  */
+            width: 65%;
+            margin: 15%;
+
+            background-image: url("fon.png");
+            background-size: 523px 191px;
+            background-attachment: fixed;
+            background-repeat: round;}
+        div.codeblock {
+            background-color: #eeeeee;
+            color: black;
+            margin: 10px;
+            padding: 10px;
+            width:50% ;
+            border: 2px solid slategrey;
+        }
+        ul.li {list-style-type: none}
+        div.fonimage {
+            width: 250px;
+            height: 200px;
+            margin: 10px;
+            background-image: url("8.png");
+        }
+        div.foncolore {
+            width: 250px;
+            height: 200px;
+            margin: 10px;
+            background-color: slategray;
+        }
+        div.fonimagere {
+            width: 1000px;
+            height: 800px;
+            margin: 10px;
+            background-image: url("8.png");
+            background-repeat: round;
+        }
+        div.fonimagepos {
+            width: 300px;
+            height: 250px;
+            margin: 10px;
+            color: black;
+
+            border: 1px solid #ccc;
+            background-color: #eee;
+            background-image: url("8.png");
+            background-repeat: no-repeat;
+            background-position: 20px 15px;
+        }
+    </style>
+
+</head>
+<body>
+<h2>Фон элемента</h2>
+<p>Фон элемента описывается в CSS свойством <b>background</b>. Фактически это свойство представляет сокращение набора следующих свойств CSS:</p>
+<ul>
+    <li>
+        <p><b>background-color:</b> устанавливает цвет фона</p>
+        <div class="codeblock">
+            <ul class="li">
+                <li>background-color: #ff0507;</li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <p><b>background-image:</b> в качестве фона устанавливается изображение</p>
+        <p><b>background-image:</b> url(dubi.png);</p>
+        <p>Это свойство принимает одно значение: ключевое слово url, после которого в скобках идет путь к файлу изображения. В данном случае имеется в виду, что в одной папке рядом с веб-страницей находится файл dubi.png.</p>
+        <p>Также можно использовать абсолютные адреса URL, например:</p>
+        <div class="codeblock">
+            <ul class="li">
+                <li>background-image: url(http://localhost.com/someimage.png);</li>
+            </ul>
+        </div>
+        <p>Либо можно использовать относительные адреса - относительно html-документа или корневого каталога сайта:</p>
+        <div class="codeblock">
+            <ul class="li">
+                <li>background-image: url(../images/someimage.png); /* путь относительно html-документа */</li>
+            </ul>
+        </div>
+    </li>
+    <li><b>background-repeat:</b> устанавливает режим повторения фонового изображения по всей поверхности элемента</li>
+    <li><b>background-size:</b> устанавливает размер фонового изображения</li>
+    <li><b>background-position:</b> указывает позицию фонового изображения</li>
+    <li><b>background-attachment:</b> устанавливает стиль прикрепления фонового изображения к элементу</li>
+    <li><b>background-clip:</b> определяет область, которая вырезается из изображения и используется в качестве фона</li>
+    <li><b>background-origin:</b> устанавливает начальную позицию фонового изображения</li>
+</ul>
+<p>Например:</p>
+<p>Первый блок</p>
+<div class="codeblock">
+<ul class="li">
+    <li>div.fonimage {</li>
+    <li>width: 250px;</li>
+    <li>height: 200px;</li>
+    <li>margin: 10px;</li>
+    <li>background-color: slategray;</li>
+    <li>} </li>
+</ul>
+</div>
+<p>Второй блок</p>
+<div class="codeblock">
+<ul class="li">
+    <li>div.fonimage {</li>
+    <li>width: 250px;</li>
+    <li>height: 200px;</li>
+    <li>margin: 10px;</li>
+    <li>background-image: url("8.png");</li>
+    <li>} </li>
+</ul>
+</div>
+<div class="foncolore"><span style="color: black">Первый блок</span></div>
+<div class="fonimage"><span style="color: black">Второй блок</span></div>
+<h3>Повторение изображения</h3>
+<p>На выше приведенном скриншоте видно, что CSS должным образом масштабирует изображение, чтобы наиболее оптимально вписать его в пространство элемента. Однако в связи с масшатбированием изображение может не полностью покрывать поверхность элемента, и поэтому для полного покрытия автоматически CSS начинает повторять изображение.</p>
+<p>С помощью свойства <b>background-repeat</b> можно изменить механизм повторения. Оно может принимать следующие значения:</p>
+<ul>
+    <li><b>repeat-x:</b> повторение по горизонтали</li>
+    <li><b>repeat-y:</b> повторение по вертикали</li>
+    <li><b>repeat:</b> повторение по обеим сторонам (действие по умолчанию)</li>
+    <li><b>space:</b> изображение повторяется для заполнения всей поверхности элемента, но без создания фрагментов</li>
+    <li><b>round:</b> изображение должным образом масштабируется для полного заполнения всего пространства</li>
+    <li><b>no-repeat:</b> изображение не повторяется</li>
+</ul>
+<p>Например</p>
+<div class="fonimagere"></div>
+<h3>Размер изображения</h3>
+<p>Свойство <b>background-size</b> позволяет установить размер фонового изображения. Для установки размера можно использовать либо единицы измерения, например, пиксели, либо проценты, либо одно из предустановленных значений:</p>
+<ul>
+    <li><b>contain:</b> масштабирует изображение по наибольшей стороне, сохраняя аспектное отношение</li>
+    <li><b>cover:</b> масштабирует изображение по наименьшей стороне, сохраняя аспектное отношение</li>
+    <li><b>auto:</b> значение по умолчанию, изображение отображается в полный размер</li>
+</ul>
+<h3>Позиция изображения</h3>
+<p>Свойство <b>background-position</b> управляет позицией фонового изображения внутри элемента. Оно может принимать отступы от верхнего левого угла элемента в единицах измерения, например, в пикселях в следующем формате:</p>
+<div class="codeblock">background-position: отступ_по_оси_X отступ_по_оси_Y;</div>
+<p>Например:</p>
+<div class="fonimagepos">Туман начинал расходиться, и неопределенно, верстах в двух расстояния, виднелись уже неприятельские
+    войска на противоположных возвышенностях...</div>
+<p>Кроме того, данное свойство может принимать одно из следующих значений:</p>
+<ul>
+    <li><b>top:</b> выравнивание по верхнему краю элемента</li>
+    <li><b>left:</b> выравнивание по левому краю элемента</li>
+    <li><b>right:</b> выравнивание по правому краю элемента</li>
+    <li><b>bottom:</b> выравнивание по нижнему краю элемента</li>
+    <li><b>center:</b> изображение располагается по центру элемента</li>
+</ul>
+<p>Например</p>
+<div class="codeblock">background-position: top right; </div>
+<p>Здесь изображение выравнивается по верху и правому краю, то есть будет располагаться в правом верхнем углу элемента.</p>
+<h3>background-attachment</h3>
+<p>Свойство <b>background-attachment</b> управляет, как фоновое изображение будет прикреплено к элементу. Это свойство может принимать следующие значения:</p>
+<ul>
+    <li><b>fixed:</b> фон элемента фиксирован вне зависимости от прокрутки внутри элемента</li>
+    <li><b>local:</b> по мере прокрутки внутри элемента фон изменяется</li>
+    <li><b>scroll:</b> фон фиксирован и не меняется при прокрутке, но в отличие от fixed несколько элементов могут использовать свой фон, тогда как при fixed создается один фон для всех элементов</li>
+</ul>
+<p>Например</p>
+<div class="codeblock">
+<ul class="li">
+    <li>div{</li>
+    <li>width: 300px;</li>
+    <li>height: 250px;</li>
+    <li></li>
+    <li></li>
+    <li>overflow:scroll;    /* добавляем прокрутку  */</li>
+    <li>xborder: 1px solid #ccc;</li>
+    <li></li>
+    <li>background-image: url(dubi.png);</li>
+    <li>background-size: 512px 384px;</li>
+    <li>background-attachment: scroll;</li>
+    <li>xbackground-repeat: no-repeat;</li>
+    <li>}</li>
+</ul>
+</div>
+<h3>background-attachment</h3>
+<p>Свойство <b>background-attachment</b> управляет, как фоновое изображение будет прикреплено к элементу. Это свойство может принимать следующие значения:</p>
+<ul>
+    <li><b>fixed:</b> фон элемента фиксирован вне зависимости от прокрутки внутри элемента</li>
+    <li><b>local:</b> по мере прокрутки внутри элемента фон изменяется</li>
+    <li><b>xscroll:</b> фон фиксирован и не меняется при прокрутке, но в отличие от fixed несколько элементов могут использовать свой фон, тогда как при fixed создается один фон для всех элементов</li>
+</ul>
+<p>Например:</p>
+<div class="codeblock">
+<ul class="li">
+    <li>div{</li>
+    <li>width: 300px;</li>
+    <li>height: 250px;</li>
+    <li></li>
+    <li></li>
+    <li>overflow:scroll;    /* добавляем прокрутку  */</li>
+    <li>border: 1px solid #ccc;</li>
+    <li></li>
+    <li>background-image: url(dubi.png);</li>
+    <li>background-size: 512px 384px;</li>
+    <li>background-attachment: scroll;</li>
+    <li>background-repeat: no-repeat;</li>
+    <li>}</li>
+</ul>
+</div>
+<h3>background-origin</h3>
+<p>Свойство <b>background-origin</b> указывает позицию на изображении, с которой будет начинаться собственно фоновое изображение для элемента. Оно может принимать следующие значения:</p>
+<ul>
+    <li><b>border-box:</b> фон у элемента устанавливается начиная с его внешней границы, определяемой свойством border</li>
+    <li><b>padding-box:</b> фон устанавливается с учетом внутренних отступов</li>
+    <li><b>content-box:</b> фон устанавливается по содержимому элемента</li>
+</ul>
+<p>Используем все три значения:</p>
+<img src="9.png" alt="">
+<h3>background-clip</h3>
+<p>Свойство background-clip определяет, какая часть изображения используется для фона. Он принимает те же значения:</p>
+<ul>
+    <li><b>border-box:</b> изображение обрезается по границам элемента</li>
+    <li><b>padding-box:</b> из изображения исключается та часть, которая находится под границами элемента</li>
+    <li><b>content-box:</b> изображение обрезается по содержимому с учетом внутренних отступов</li>
+</ul>
+<p>Например, если к предыдущей разметке мы применим следующие стили:</p>
+<div class="codeblock">
+<ul class="li">
+    <li>div{</li>
+    <li>width: 200px;</li>
+    <li>height: 200px;</li>
+    <li>margin: 10px;</li>
+    <li>xdisplay: inline-block;</li>
+    <li></li>
+    <li>color: #eee;</li>
+    <li>padding:15px;</li>
+    <li>border: 15px solid rgba(23,23,23,0.1);</li>
+    <li></li>
+    <li>background-image: url(cats.jpg);</li>
+    <li>background-size: cover;</li>
+    <li>background-repeat: no-repeat;</li>
+    <li>}</li>
+    <li>.borderBox{background-clip: border-box;}</li>
+    <li>.paddingBox{background-clip: padding-box;}</li>
+    <li>.contentBox{background-clip: content-box;}</li>
+</ul>
+</div>
+<p>Тогда мы получим следующий результат</p>
+<img src="10.png" alt="">
+<h3>Свойство background</h3>
+<div class="codeblock">
+<p>Свойство background по сути является сокращением всех ранее рассмотренных свойств CSS в формате:</p>
+<ul class="li">
+    <li>background: <*background-color> <*background-position> <*background-size></li>
+    <li><*background-repeat> <*background-origin> <*background-clip> <*background-attachment></li>
+    <li><*background-image></li>
+</ul>
+</div>
+<p>Например, если у нас есть следующий набор свойств:</p>
+<div class="codeblock">
+<ul class="li">
+    <li>background-image: url(cats.jpg);</li>
+    <li>background-color: #eee;</li>
+    <li>background-repeat: no-repeat;</li>
+    <li>background-clip: border-box;</li>
+    <li>background-origin: border-box;</li>
+    <li>background-attachment: local;</li>
+</ul>
+</div>
+<p>То мы их можем сократить следующим образом:</p>
+<div class="codeblock">background: #eee no-repeat border-box local url(cats.jpg);</div>
+
+
+
+</body>
+</html>

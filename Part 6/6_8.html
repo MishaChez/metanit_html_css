@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_8</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            border-spacing: 3px;
+        }
+        td, th {border: 1px solid #ccc}
+        .collapsed {border-collapse: collapse}
+        .separated {border-collapse: separate}
+        .hidden {empty-cells: hide;}
+        .captionbottom {caption-side: bottom}
+        .tablelayoutfixed {
+            border: 1px solid #ccc;
+            border-spacing: 3px;
+            table-layout: fixed;
+            width:350px;
+        }
+        td,th.vert {
+            border: solid 1px #ccc;
+            vertical-align: bottom;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div>
+<h2>Стилизация таблиц</h2>
+<p>CSS предоставляет ряд свойств, которые помогают стилизовать таблицу:</p>
+<ul>
+    <li><b>border-collapse:</b> устанавливает, как будет стилизоваться граница смежных ячеек</li>
+    <li><b>border-spacing:</b> устанавливает промежутки между границами смежных ячеек</li>
+    <li><b>caption-side:</b> устанавливает положение элемента caption</li>
+    <li><b>empty-cells:</b> задает режим отрисовки для пустых ячеек</li>
+    <li><b>table-layout:</b> определяет размеры таблицы</li>
+</ul>
+</div>
+<div>
+    <h3>Border-collapse</h3>
+    <p>При установке границ между столбцами с помощью свойства <b>border-collapse</b> можно установить общую или раздельную границу между смежными ячейками:</p>
+    <ul>
+        <li><b>collapse:</b> смежные ячейки имеют общую границу</li>
+        <li><b>separate:</b> смежные ячейки имеют отдельные границы, которые разделяются пространством</li>
+    </ul>
+    <p>Если смежные ячейки имеют раздельные границы, то с помощью свойства <b>border-spacing</b> можно установить пространство между границами:</p>
+    <h4>Collapse</h4>
+    <table class="collapsed">
+    <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+    <tr><td>Lumia 950</td><td>Microsoft</td><td>29900</td></tr>
+    <tr><td>iPhone 6S</td><td>Apple</td><td>52900</td></tr>
+    <tr><td>Nexus 6P</td><td>Huawei</td><td>49000</td></tr>
+    </table>
+    <h4>Separate</h4>
+    <table class="separated">
+    <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+    <tr><td>G 5</td><td>LG</td><td>44900</td></tr>
+    <tr><td>HTC 10</td><td>HTC</td><td>49900</td></tr>
+    <tr><td>Nexus 5X</td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+</div>
+<div>
+    <h3>Пустые ячейки</h3>
+    <p>Свойство <b>empty-cells</b> позволяет стилизовать пустые ячейки с помощью одного из следующих значений:</p>
+    <ul>
+        <li><b>show:</b> пустые ячейки отображаются, значение по умолчанию</li>
+        <li><b>hide:</b> пустые ячейки не отображаются</li>
+    </ul>
+    <h4>Show</h4>
+    <table>
+    <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+    <tr><td>G 5</td><td>LG</td><td></td></tr>
+    <tr><td>HTC 10</td><td></td><td>49900</td></tr>
+    <tr><td></td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+    <h4>Hide</h4>
+    <table class="hidden">
+    <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+    <tr><td>G 5</td><td>LG</td><td></td></tr>
+    <tr><td>HTC 10</td><td></td><td>49900</td></tr>
+    <tr><td></td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+    </div>
+<div>
+    <h3>Позиционирование заголовка</h3>
+    <p>Свойство <b>caption-side</b> управляет позицией заголовка и может принимать следующие значения:</p>
+    <ul>
+        <li><b>top:</b> позиционирование заголовка вверху (значение по умолчанию)</li>
+        <li><b>bottom:</b> позиционирование заголовка внизу</li>
+    </ul>
+    <h4>Top</h4>
+    <table>
+        <caption><b>Заголовок</b></caption>
+        <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+        <tr><td>G 5</td><td>LG</td><td></td></tr>
+        <tr><td>HTC 10</td><td></td><td>49900</td></tr>
+        <tr><td></td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+    <h4>Bottom</h4>
+    <table class="captionbottom">
+        <caption><b>Заголовок</b></caption>
+        <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+        <tr><td>G 5</td><td>LG</td><td></td></tr>
+        <tr><td>HTC 10</td><td></td><td>49900</td></tr>
+        <tr><td></td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+</div>
+<div>
+    <h3>Управление размером таблицы</h3>
+    <p>С помощью свойства <b>table-layout</b> можно управлять размером таблицы. По умолчанию это свойство имеет значение auto, при котором браузер устанавливает ширину столбцов таблицы автоматически, исходя из ширины самой широкой ячейки в столбце. А из ширины отдельных столбцов складывается ширина всей таблицы.</p>
+    <p>Однако с помощью другого значения - fixed можно установить фиксированную ширину:</p>
+    <table class="tablelayoutfixed">
+        <tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>
+        <tr><td>G 5</td><td>LG</td><td></td></tr>
+        <tr><td>HTC 10</td><td></td><td>49900</td></tr>
+        <tr><td></td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+</div>
+<div>
+    <h3>Вертикальное выравнивание</h3>
+    <p>Как правило, содержимое ячеек таблицы выравнивается по центру ячейки. Но с помощью свойства <b>vertical-align</b> это поведение можно переопределить. Это свойство принимает следующие значения:</p>
+    <ul>
+        <li>top: выравнивание содержимого по верху ячейки</li>
+        <li>baseline: выравнивание первой строки текста по верху ячейки</li>
+        <li>middle: выравнивание по центру (значение по умолчанию)</li>
+        <li>bottom: выравнивание по низу</li>
+    </ul>
+    <p>Свойство vertical-align применяется только к элементам th и td:</p>
+    <table>
+        <tr><th class="vert">Модель</th><th>Производитель</th><th>Цена</th></tr>
+        <tr><td>G 5</td><td>LG</td><td></td></tr>
+        <tr><td>HTC 10</td><td></td><td>49900</td></tr>
+        <tr><td></td><td>Google/LG</td><td>25000</td></tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_13</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+        body {font-family: Roboto}
+        ul.li123 {list-style-type: decimal;}
+        ul.li {list-style-type: none;}
+        div.outer {
+            width: 75%;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+        }
+        div.inner {
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            border: 1px solid red;
+            background-color: blue;
+        }
+        div.codeblock {
+            margin: 10px;
+            width: 350px;
+            border: 2px solid slategray;
+        }
+        div.content {
+            width: 400px;
+            height: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: 5px solid #ccc;
+            background-color: #eee;
+            box-sizing: content-box;
+        }
+        div.border {
+            width: 400px;
+            height: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: 5px solid #ccc;
+            background-color: #eee;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+<h2>Размеры элементов</h2>
+<p>Размеры элементов задаются с помощью свойств <b>width</b> (ширина) и <b>height</b> (высота). </p>
+<p>Значение по умолчанию для этих свойств - auto, то есть браузер сам определяет ширину и высоту элемента. Можно также явно задать размеры с помощью единиц измерения (пикселей, em) или с помощью процентов:</p>
+<ul class="li123">
+    <li>width: 150px;</li>
+    <li>width: 75%;</li>
+    <li>height: 15em;</li>
+</ul>
+<p>Пиксели определяют точные ширину и высоту. Единица измерения em зависит от высоты шрифта в элементе. Если размер шрифта элемента, к примеру, равен 16 пикселей, то 1 em для этого элемента будет равен 16 пикселям. То есть если у элемента установить ширину в 15em, то фактически она составит 15 * 16 = 230 пикселей. Если же у элемента не определен размер шрифта, то он будет взят из унаследованных параметров или значений по умолчанию.</p>
+<p>Процентные значения для свойства width вычисляются на основании ширины элемента-контейнера. Если, к примеру, ширина элемента body на веб-странице составляет 1000 пикселей, а вложенный в него элемент div имеет ширину 75%, то фактическая ширина этого блока div составляет 1000 * 0.75 = 750 пикселей. Если пользователь изменит размер окна браузера, то ширина элемента body и соответственно ширина вложенного в него блока div тоже изменится.</p>
+<p>Процентные значения для свойства height работают аналогично свойству width, только теперь высота вычисляется по высоте элемента-контейнера.</p>
+<p>Например</p>
+<div class="outer"><div class="inner"></div></div>
+<p>В то же время фактические размеры элемента могут в итоге отличаться от тех, которые установлены в свойствах <i>width</i> и <i>height</i>. Например:</p>
+<div class="codeblock">
+<ul class="li">
+    <li>div.outer{</li>
+    <li>width: 200px;</li>
+    <li>height: 100px;</li>
+    <li>margin: 10px;</li>
+    <li>padding: 10px;</li>
+    <li>border: 5px solid #ccc;</li>
+    <li>background-color: #eee;</li>
+    <li>}</li>
+</ul>
+</div>
+<img src="7.png" alt="фактический размер">
+<p>Как видно на скриншоте, в реальности значение свойства width - 200px - определяет только ширину внутреннего содержимого элемента, а под блок самого элемента будет выделяться пространство, ширина которого равна ширине внутреннего содержимого (свойство width) + внутренние отступы (свойство padding) + ширина границы (свойство border-width) + внешние отступы (свойство margin). То есть элемент будет иметь ширину в 230 пикселей, а ширина блока элемента с учетом внешних отступов составит 250 пикселей.</p>
+<p>Подобные расчеты следует учитывать при определении размеров элементов.</p>
+<p>С помощью дополнительного набора свойств можно установить минимальные и максимальные размеры:</p>
+<ul>
+    <li><b>min-width:</b> минимальная ширина</li>
+    <li><b>max-width:</b> максимальная ширина</li>
+    <li><b>min-height:</b> минимальная высота</li>
+    <li><b>max-height:</b> максимальная высота</li>
+</ul>
+<div class="codeblock">
+    <ul class="li">
+        <li>min-width: 200px;</li>
+        <li>width:50%;</li>
+        <li>max-width: 300px;</li>
+    </ul>
+</div>
+<p>В данном случае ширина элемента равна 50% ширины элемента-контейнера, однако при этом не может быть меньше 200 пикселей и больше 300 пикселей.</p>
+<h3>Переопределние ширины блока</h3>
+<p>Свойство <b>box-sizing</b> позволяет переопределить установленные размеры элементов. Оно может принимать одно из следующих значений:</p>
+<ul>
+    <li>
+        <p><i>content-box:</i> значение свойства по умолчанию, при котором браузер для определения реальных ширины и высоты элементов добавляет берет соответственно значения свойств width и height элемента</p>
+        <p>Например</p>
+        <div class="codeblock">
+            <ul class="li">
+                <li>width: 200px;</li>
+                <li>height: 100px;</li>
+                <li>margin: 10px;</li>
+                <li>padding: 10px;</li>
+                <li>border: 5px solid #ccc;</li>
+                <li>background-color: #eee;</li>
+                <li>box-sizing: content-box;</li>
+            </ul>
+        </div>
+        <p>В данном случае элемент будет иметь ширину в 200 пикселей и высоту в 100 пиксей.</p>
+    </li>
+    <li>
+        <p><i>padding-box:</i> указывает веб-браузеру, что ширина и высота элемента должны включать внутренние отступы как часть своего значения. Например, пусть у нас есть следующий стиль:</p>
+        <div class="codeblock">
+            <ul class="li">
+                <li>width: 200px;</li>
+                <li>height: 100px;</li>
+                <li>margin: 10px;</li>
+                <li>padding: 10px;</li>
+                <li>border: 5px solid #ccc;</li>
+                <li>background-color: #eee;</li>
+                <li>box-sizing: padding-box;</li>
+            </ul>
+        </div>
+        <p>Здесь реальная ширина внутреннего содержимого блока будет равна 200px (width) - 10px (padding-left) - 10px (padding-right) = 180px.</p>
+        <p>Стоит отметить, что большинство современных браузеров не поддерживают данное свойство.</p>
+    </li>
+    <li>
+        <p><i>border-box:</i> указывает веб-браузеру, что ширина и высота элемента должны включать внутренние отступы и границы как часть своего значения. Например, пусть у нас есть следующий стиль:</p>
+        <div class="codeblock">
+            <ul class="li">
+                <li>width: 200px;</li>
+                <li>height: 100px;</li>
+                <li>margin: 10px;</li>
+                <li>padding: 10px;</li>
+                <li>border: 5px solid #ccc;</li>
+                <li>background-color: #eee;</li>
+                <li>box-sizing: border-box;</li>
+            </ul>
+        </div>
+        <p>Здесь реальная ширина внутреннего содержимого блока будет равна 200px (width) - 10px (padding-left) - 10px (padding-right) - 5px (border-left-width) - 5px (border-right-width) = 170px</p>
+    </li>
+</ul>
+<p>Например, определим два блока, которые отличаются только значением свойства box-sizing:</p>
+<p>В первом случае при определении размеров блока к свойствам width и height будут добавляться толщина границы, а также внутренние и внешние отступы, поэтому первый блок будет иметь большие размеры:</p>
+<div class="content">
+    <p>Определение фактического размера в CSS 3</p>
+    <p><i>box-sizing: content-box</i></p>
+</div>
+<div class="border">
+    <p>Определение фактического размера в CSS 3</p>
+    <p><i>box-sizing: border-box</i></p>
+</div>
+
+</body>
+</html>

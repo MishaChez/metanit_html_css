@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_16</title>
+  <style>
+      @font-face {
+
+          font-family: 'Roboto';
+          src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+      }
+      body {
+          color: silver;
+          font-family: Roboto;
+          overflow:scroll;    /* добавляем прокрутку  */
+          width: auto;
+          margin: 3% 20% 3% 20%;
+
+          background-image: url("fon.png");
+          background-size: 523px 191px;
+          background-attachment: fixed;
+          background-repeat: round;
+      }
+      h2 {
+
+          margin-right: 30%;
+          margin-left: 40%;
+          margin-bottom: 40px;
+      }
+      div.codeblock {
+          background-color: #eeeeee;
+          color: black;
+          margin: 10px;
+          padding: 10px;
+          width:50% ;
+          border: 2px solid slategrey;
+      }
+      div.divdashed1{
+          width: 128px;
+          height: 96px;
+          margin: 20px;
+          border: 1px solid #ccc;
+          outline-color: red;
+          outline-style: dashed;
+          outline-width: 2px;
+      }
+      ul.li {list-style-type: none}
+      ul.ulcircle {list-style-type: circle}
+  </style>
+</head>
+<body>
+<h2>Контуры элементов</h2>
+<p>Концепция контуров похожа на использование границ у элементов. Не стоит путать или заменять границы контурами, они имеют разное значение. Контуры полезны тем, что позволяют выделить элемент, чтобы привлечь к нему внимание в какой-то ситуации. Контуры располагаются вне элемента сразу за его границами.</p>
+<p>Контур в CSS 3 представлен свойством <b>outline</b>, хотя данное свойство является сокращением следующих свойств:</p>
+<ul>
+    <li><b>outline-color:</b> цвет контура</li>
+    <li><b>outline-offset:</b> смещение контура</li>
+    <li>
+        <b>outline-style:</b> стиль контура. Оно принимает те же значения, что и border-style:
+        <p>
+        <ul class="ulcircle">
+            <li><i>none:</i> контур отсутствует</li>
+            <li><i>solid:</i> контур в виде обычной линии</li>
+            <li><i>dashed:</i> штриховая линия</li>
+            <li><i>dotted:</i> линия в виде последовательности точек</li>
+            <li><i>double:</i> контур в виде двух параллельных линий</li>
+        </ul>
+        </p>
+    </li>
+    <li><b>outline-width:</b> толщина контура</li>
+</ul>
+<p>Например:</p>
+<div class="codeblock">
+    <ul class="li">
+        <li>div{</li>
+        <li>width: 128px;</li>
+        <li>height: 96px;</li>
+        <li>margin: 20px;</li>
+        <li>border: 1px solid #ccc;</li>
+        <li>background-color: #eee;</li>
+        <li>outline-color: red;</li>
+        <li>outline-style: dashed;</li>
+        <li>outline-width: 2px;</li>
+        <li>}</li>
+    </ul>
+</div>
+<div class="divdashed1">Контур в CSS3</div>
+<p>С помощью свойства outline данное определение контура можно сократить следующим образом:</p>
+<div class="codeblock">
+    outline: red dashed 2px;
+</div>
+</body>
+</html>

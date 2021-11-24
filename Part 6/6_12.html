@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_12</title>
+    <style>
+        ul.ulcircle { list-style-type: circle}
+        div.ver1 {
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        div.ver2 {
+            border-width: medium;
+            border-color: black;
+            border-style: solid;
+        }
+        div.ver3 {
+            border-width: medium;
+            border-color: red;
+            border-style: solid;
+        }
+        div.soliddiv {
+            width: 100px;
+            height:100px;
+            border-style: solid;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.dasheddiv {
+            width: 100px;
+            height:100px;
+            border-style: dashed;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.dotteddiv {
+            width: 100px;
+            height:100px;
+            border-style: dotted;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.doublediv {
+            width: 100px;
+            height:100px;
+            border-style: double;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.groovediv {
+            width: 100px;
+            height:100px;
+            border-style: groove;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.insetdiv {
+            width: 100px;
+            height:100px;
+            border-style: inset;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.outsetdiv {
+            width: 100px;
+            height:100px;
+            border-style: outset;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.ridgediv {
+            width: 100px;
+            height:100px;
+            border-style: ridge;
+            border-color: red;
+            border-width: 2px;
+        }
+        div.raddiv1 {
+            width: 100px;
+            height:100px;
+            border: 2px solid red;
+            border-radius: 30px;
+        }
+        div.raddiv2 {
+            width: 100px;
+            height:100px;
+            border: 2px solid red;
+            border-radius: 15px 30px 5px 40px;
+        }
+        div.raddiv3 {
+            width: 100px;
+            height:100px;
+            border: 2px solid red;
+            border-radius: 40px/20px;
+        }
+    </style>
+</head>
+<body>
+<h2>Границы</h2>
+<p>Граница отделяется элемент от внешнего по отношению к нему содержимого. При этом граница является частью элемента.</p>
+<p>Для настройки границы могут использоваться сразу несколько свойств:</p>
+<ul>
+    <li>border-width: устанавливает ширину границы</li>
+    <li>border-style: задает стиль линии границы</li>
+    <li>border-color: устанавливает цвет границы</li>
+</ul>
+<p>Свойство <b>border-width</b> может принимать следующие типы значений:</p>
+<ul class="ulcircle">
+    <li>
+        <p>Значения в единицах измерения, таких как em, px или cm</p>
+        <div class="ver1"><p><i>border-width: 2px</i></p></div>
+    </li>
+
+    <li>
+    <p>Одно из константных значений: thin (тонкая граница - 1px), medium (средняя по ширине - 3px), thick (толстая - 5px)</p>
+    <div class="ver2"><p><i>border-width: medium;</i></p></div>
+    </li>
+</ul>
+<p>Свойство <b>border-color</b> в качестве значения принимает цвет CSS:</p>
+<ul class="ulcircle">
+<li><div class="ver3"><p><i>border-color: red;</i></p></div></li>
+</ul>
+<br>
+<br>
+<p>Свойство <b>border-style</b> оформляет тип линии границы и может принимать одно из следующих значений:</p>
+<ul>
+    <li><b>none:</b> граница отсутствует</li>
+    <li><b>solid:</b> граница в виде обычной линии</li>
+    <li><b>dashed:</b> штриховая линия</li>
+    <li><b>dotted:</b> линия в виде последовательности точек</li>
+    <li><b>double:</b> граница в виде двух параллельных линий</li>
+    <li><b>groove:</b> граница имеет трехмерный эффект</li>
+    <li><b>inset:</b> граница как бы вдавливается во внутрь</li>
+    <li><b>outset:</b> аналогично inset, только граница как бы выступает наружу</li>
+    <li><b>ridge:</b> граница также реализует трехмерный эффект</li>
+</ul>
+    <div class="soliddiv"><p>solid</p></div>
+    <br>
+    <div class="dasheddiv">dashed</div>
+    <br>
+    <div class="dotteddiv">dotted</div>
+    <br>
+    <div class="doublediv">double</div>
+    <br>
+    <div class="groovediv">groove</div>
+    <br>
+    <div class="insetdiv">inset</div>
+    <br>
+    <div class="outsetdiv">outset</div>
+    <br>
+    <div class="ridgediv">ridge</div>
+    <br>
+    <p>При необходимости мы можем определить цвет, стиль и ширину границы для каждой из сторон используя следующие свойства:</p>
+    <p>Для верхней границы:</p>
+    <ul>
+        <li><b>border-top-width</b></li>
+        <li><b>border-top-style</b></li>
+        <li><b>border-top-color</b></li>
+    </ul>
+<p>и т.д</p>
+<br>
+<h3>Свойство border</h3>
+<p>Вместо установки по отдельности цвета, стиля и ширины границы мы можем использовать одно свойство - <b>border:</b></p>
+<p>border: ширина стиль цвет;</p>
+<p><i>border: 2px solid red;</i></p>
+<p>Для установки границы для отдельных сторон можно использовать одно из свойств:</p>
+<ul>
+    <li>border-top</li>
+    <li>border-bottom</li>
+    <li>border-left</li>
+    <li>border-right</li>
+</ul>
+<p>Их использование аналогично:</p>
+<p><i>border-top: 2px solid red</i></p>
+<br>
+<h3>Радиус границы</h3>
+<p>Свойство <b>border-radius</b> позволяет округлить границу. Это свойство принимает значение радиуса в пикселях или единицах em.</p>
+<p>Теперь каждый угол будет скругляться по радиусу в 30 пикселей:</p>
+<div class="raddiv1"></div>
+<p>Так как у элемента может быть максимально четыре угла, то мы можем указать четыре значения для установки радиуса у каждого углов:</p>
+<p><i>border-radius: 15px 30px 5px 40px;</i></p>
+<div class="raddiv2"></div>
+<ul>
+<li><p><i>border-top-left-radius: 15px;   /* радиус для верхнего левого угла */</i></p></li>
+<li><p><i>border-top-right-radius: 30px;  /* радиус для верхнего правого угла */</i></p></li>
+<li><p><i>border-bottom-right-radius: 5px;    /* радиус для нижнего левого угла */</i></p></li>
+<li><p><i>border-bottom-left-radius: 40px;    /* радиус для нижнего правого угла */</i></p></li>
+</ul>
+<p>Также border-radius поддерживает возможность создания эллиптических углов. То есть угол не просто скругляется, а использует два радиуса, образуя в итоге душу эллипса:</p>
+<p><i>border-radius: 40px/20px;</i></p>
+<p>В данном случае полагается, что радиус по оси X будет иметь значение 40 пикселей, а по оси Y - 20 пикселей.</p>
+<div class="raddiv3"></div>
+</body>
+</html>
