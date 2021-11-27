@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_18</title>
+  <style>
+      @font-face {
+
+          font-family: 'Roboto';
+          src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+      }
+
+      body {
+          color: silver;
+          font-family: Roboto;
+          overflow:scroll;    /* добавляем прокрутку  */
+          width: auto;
+          margin: 3% 20% 3% 20%;
+
+          background-image: url("fon.png");
+          background-size: 523px 191px;
+          background-attachment: fixed;
+          background-repeat: round;
+      }
+      h2 {
+
+          margin-right: 30%;
+          margin-left: 40%;
+          margin-bottom: 40px;
+      }
+      div.codeblock {
+          background-color: #eeeeee;
+          color: black;
+          margin: 10px;
+          padding: 10px;
+          width:50% ;
+          border: 2px solid slategrey;}
+      .article1{
+          width: 300px;
+          height: 150px;
+          margin:15px;
+          border: 1px solid #ccc;
+          overflow: auto;
+          background-color: #eeeeee;
+          color: black;
+      }
+      .article2{
+          width: 300px;
+          height: 150px;
+          margin:15px;
+          border: 1px solid #ccc;
+          overflow: hidden;
+          background-color: #eeeeee;
+          color: black;
+      }
+
+  </style>
+</head>
+<body>
+<h2>Прокрутка элементов</h2>
+<p>Нередко при создании веб-страниц можно столкнуться с ситуацией, когда содержимое блока занимает гораздо больше места, чем сам определено шириной и высотой блока. В этой ситуации по умолчанию браузер все равно отображает содержимое, даже если оно выходит за границы блока.</p>
+<p>Однако свойство <b>overflow</b> позволяет настроить поведение блока в подобной ситуации и добавить возможность прокрутки. Это свойство может принимать следующие значения:</p>
+<ul>
+    <li><b>auto:</b> если контент выходит за границы блока, то создается прокрутка. В остальных случаях полосы прокрутки не отображаются</li>
+    <li><b>hidden:</b> отображается только видимая часть контента. Контент, который выходит за границы блока, не отображается, а полосы прокрутки не создаются</li>
+    <li><b>scroll:</b> в блоке отображаются полосы прокрутки, даже если контент весь помещается в границах блока, и таких полос прокрутки не требуется</li>
+    <li><b>visible:</b> значение по умолчанию, контент отображается, даже если он выходит за границы блока</li>
+</ul>
+<p>Рассмотрим применение двух значений:</p>
+<div class="codeblock">
+    <pre>
+                .article1{
+            width: 300px;
+            height: 150px;
+            margin:15px;
+            border: 1px solid #ccc;
+            overflow: auto;
+        }
+        .article2{
+            width: 300px;
+            height: 150px;
+            margin:15px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+    </pre>
+</div>
+<div class="article1">
+    <p>Старый дуб, весь преображенный, раскинувшись шатром сочной, темной зелени, млел, чуть
+        колыхаясь в лучах вечернего солнца. Ни корявых пальцев, ни болячек, ни старого недоверия и
+        горя – ничего не было видно. Да, это тот самый дуб», – подумал князь
+        Андрей, и на него вдруг нашло беспричинное весеннее чувство радости и обновления.</p>
+</div>
+<div class="article2">
+    <p>Старый дуб, весь преображенный, раскинувшись шатром сочной, темной зелени, млел, чуть
+        колыхаясь в лучах вечернего солнца. Ни корявых пальцев, ни болячек, ни старого недоверия и
+        горя – ничего не было видно. Да, это тот самый дуб», – подумал князь
+        Андрей, и на него вдруг нашло беспричинное весеннее чувство радости и обновления.</p>
+</div>
+<p>Свойство overflow управляет полосами прокрутки как по вертикали, так и по горизонтали. С помощью дополнительных свойств <b>overflow-x</b> и <b>overflow-y</b> можно определить прокрутку соответственно по горизонтали и по вертикали. Данные свойства принимают те же значения, что и overflow:</p>
+<div class="codeblock">
+    <pre>
+        overflow-x: auto;
+        overflow-y: hidden;
+    </pre>
+</div>
+
+</body>
+</html>

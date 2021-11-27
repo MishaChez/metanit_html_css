@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_20</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+
+        body {
+            color: silver;
+            font-family: Roboto;
+            overflow:scroll;    /* добавляем прокрутку  */
+            width: auto;
+            margin: 3% 20% 3% 20%;
+
+            background-image: url("fon.png");
+            background-size: 523px 191px;
+            background-attachment: fixed;
+            background-repeat: round;
+        }
+        h2 {
+
+            margin-right: 30%;
+            margin-left: 40%;
+            margin-bottom: 40px;
+        }
+
+        div.codeblock {
+            background-color: #eeeeee;
+            color: black;
+            margin: 10px;
+            padding: 10px;
+            width:auto ;
+            border: 2px solid slategrey;}
+        div.radialgradient {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+
+            background-color: #eee;
+            background-image: radial-gradient(white, black);
+            background-image: -moz-radial-gradient(white, black);
+            background-image: -webkit-radial-gradient(white, black);
+        }
+        div.radialgradient1 {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+
+            background-color: #eee;
+            background-image: radial-gradient(white, black);
+            background-image: -moz-radial-gradient(white, black);
+            background-image: -webkit-radial-gradient(white, black);
+        }
+        p.radialgradient {
+            margin: 0;
+            padding-top: 60px;
+            text-align: center;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<h2>Радиальный градиент</h2>
+<p>Радиальные градиенты в отличие от линейных распространяются от центра наружу по круговой схеме. Для создания радиального градиента достаточно указать цвет, который будет в центре градиента, и цвет, который должен быть снаружи. Эти цвета передаются в функцию <b>radial-gradient()</b>. Например:</p>
+<div class="radialgradient"><p class="radialgradient"></p>Радиальный градиент</div>
+<p>Как и в случае с линейным градиентом здесь также надо использовать префиксы вендоров для поддержки браузерами.
+
+    <br>Радиальный градиент может иметь две формы: круговую и эллиптическую. Эллиптическая форма представляет распространение градиента в виде эллипса и задается с помощью ключевого слова ellipse:</p>
+<div class="codeblock">background-image: radial-gradient(ellipse, white, black);</div>
+<p>Поскольку это значение для градиента по умолчанию, то оно может опускаться при использовании.
+    <br>Круговая форма представляет распространение градиента в виде кругов от центра во вне. Для этого используется ключевое слово circle:</p>
+<div class="codeblock">background-image: radial-gradient(circle, white, black);</div>
+<p>Как правило, центр радиального градиента расположен в центре элемента, но это поведение можно переопределить, указав значение для параметра background-position:</p>
+<div class="codeblock">background-image: radial-gradient(25% 30%, circle, white, black);</div>
+<p>Числа 25% 30% означают, что центр градиента будет находиться на расстоянии в 25% от левой границы и в 30% от верхней границы элемента.</p>
+<div class="radialgradient1"></div>
+<p>С помощью специальных дополнительных значений можно задать размер градиента:</p>
+<ul>
+    <li>closest-side: градиент распространяется из центра только до ближайшей к центру стороне элемента. То есть градиент остается внутри элемента</li>
+    <li>closest-corner: ширина градиента вычисляется по расстоянию из его центра до ближайшего угла элемента, поэтому градиент может выйти за пределы элемента.</li>
+    <li>farthest-side: градиент распространяется из центра до самой дальней стороны элемента</li>
+    <li>farthest-corner: ширина градиента вычисляется по расстоянию из его центра до самого дальнего угла элемента</li>
+</ul>
+<div class="codeblock">background-image: radial-gradient(25% 30%, circle farthest-corner, white, black);</div>
+</body>
+</html>

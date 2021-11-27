@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_21</title>
+    <style>
+        @font-face {
+
+        font-family: 'Roboto';
+        src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+    }
+
+    body {
+        color: silver;
+        font-family: Roboto;
+        overflow:scroll;    /* добавляем прокрутку  */
+        width: auto;
+        margin: 3% 20% 3% 20%;
+
+        background-image: url("fon.png");
+        background-size: 523px 191px;
+        background-attachment: fixed;
+        background-repeat: round;
+    }
+    h2 {
+
+        margin-right: 30%;
+        margin-left: 40%;
+        margin-bottom: 40px;
+    }
+
+    div.codeblock {
+        background-color: #eeeeee;
+        color: black;
+        margin: 10px;
+        padding: 10px;
+        width:auto ;
+        border: 2px solid slategrey;}
+        details > summary {
+            padding: 5px;
+            background-color: #eee;
+            color: #333;
+            border: 1px #ccc solid;
+            cursor: pointer;
+        }
+
+        details > div {
+            border: 1px #ccc solid;
+            padding: 10px;
+        }
+        details[open] > summary {
+            color:#eee;
+            background-color:#333;
+        }
+        details > summary.ver1 {
+            padding: 5px;
+            background-color: #eee;
+            color: #333;
+            border: 1px #ccc solid;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        details > div.ver1 {
+            border: 1px #ccc solid;
+            padding: 10px;
+        }
+
+        details[open] > summary.ver1 {
+            color:#eee;
+            background-color:#333;
+        }
+        details > summary.ver2 {
+            padding: 5px;
+            background-color: #eee;
+            color: #333;
+            border: 1px #ccc solid;
+            cursor: pointer;
+
+            list-style-type: disc;  /* задаем маркер*/
+        }
+
+        details > div.ver2 {
+            border: 1px #ccc solid;
+            padding: 10px;
+        }
+
+        details[open] > summary.ver2 {
+            color:#eee;
+            background-color:#333;
+        }
+        details > summary.ver3 {
+            padding: 5px;
+            background-color: #eee;
+            color: #333;
+            border: 1px #ccc solid;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        details > div.ver3 {
+            border: 1px #ccc solid;
+            padding: 10px;
+        }
+
+        details[open] > summary.ver3 {
+            color:#eee;
+            background-color:#333;
+        }
+        summary.ver3:before {
+            content: "+";
+            font-size: 20px;
+            font-weight: bold;
+            margin: -5px 5px 0 0;
+        }
+
+        details[open] summary.ver3:before {
+            content: "-";
+        }
+    </style>
+</head>
+<body>
+<h2>Стилизация элемента details</h2>
+<p>Рассмотрим некоторые возможности по стилизации элемента <b>details</b>, который представляет раскрываемый блок.</p>
+<h3>Атрибут open</h3>
+<p>Прежде всего в раскрытом состоянии к элементу details добавляется атрибут open. Соответственно, используя атрибут, можно задать разные стили для элемента в скрытом и раскрытом состоянии. Например:</p>
+<div class="codeblock">
+    <pre>
+         details > summary {
+        padding: 5px;
+        background-color: #eee;
+        color: #333;
+        border: 1px #ccc solid;
+        cursor: pointer;
+    }
+
+    details > div {
+        border: 1px #ccc solid;
+        padding: 10px;
+    }
+    details[open] > summary {
+        color:#eee;
+        background-color:#333;
+    }
+    </pre>
+</div>
+<p>С помощью селектора details[open] мы можем обратиться к элементу details в раскрытом состоянии. Соответственно селектор</p>
+<div class="codeblock">
+    <pre>
+        details[open] > summary {
+    color:#eee;
+    background-color:#333;
+}
+    </pre>
+</div>
+
+<p>Позволяет задать стили для элемента <b>summary</b> в раскрытом состоянии. То есть в данном случае при раскрытии элемента details мы переключаем цвет стиля и фона заголовка.</p>
+<details>
+    <summary>Князь Андрей и Пьер в Богучарово</summary>
+    <div>Вокруг дома был рассажен молодой сад. Ограды и ворота были прочные и новые; под навесом
+        стояли две пожарные трубы и бочка, выкрашенная зеленою краской; дороги были прямые, мосты были крепкие с перилами.
+        На всем лежал отпечаток аккуратности и хозяйственности.</div>
+</details>
+<h3>Настройка маркера</h3>
+<p>По умолчанию элемент <b>summary</b> в качестве маркера скрытости/раскрытости использует символ треугольника. Но его также можно настроить.</p>
+<p>Для настройки изображения маркера можно использовать свойство <b>list-style</b>, а также дополнительные свойства типа <b>list-style-type</b> или <b>list-style-image</b>, которые применяются для стилизации списков. Например, если необходимо убрать этот маркер, то можно применить стиль list-style: none:</p>
+<div class="codeblock">
+    <pre>
+        details > summary {
+        padding: 5px;
+        background-color: #eee;
+        color: #333;
+        border: 1px #ccc solid;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    details > div {
+        border: 1px #ccc solid;
+        padding: 10px;
+    }
+
+details[open] > summary {
+    color:#eee;
+   background-color:#333;
+}
+    </pre>
+</div>
+<details class="ver1">
+    <summary class="ver1">Князь Андрей и Пьер в Богучарово</summary>
+    <div class="ver1">Вокруг дома был рассажен молодой сад. Ограды и ворота были прочные и новые; под навесом стояли две пожарные трубы и бочка,
+        выкрашенная зеленою краской; дороги были прямые, мосты были крепкие с перилами. На всем лежал отпечаток аккуратности и хозяйственности.</div>
+</details>
+<p>Другой пример - примение стиля list-style-type: disc;:</p>
+<div class="codeblock">
+    <pre>
+            details > summary {
+        padding: 5px;
+        background-color: #eee;
+        color: #333;
+        border: 1px #ccc solid;
+        cursor: pointer;
+
+        list-style-type: disc;  /* задаем маркер*/
+    }
+
+    details > div {
+        border: 1px #ccc solid;
+        padding: 10px;
+    }
+
+details[open] > summary {
+    color:#eee;
+   background-color:#333;
+}
+    </pre>
+</div>
+<details class="ver2">
+    <summary class="ver2">Князь Андрей и Пьер в Богучарово</summary>
+    <div class="ver2">Вокруг дома был рассажен молодой сад. Ограды и ворота были прочные и новые; под навесом стояли две пожарные трубы и бочка,
+        выкрашенная зеленою краской; дороги были прямые, мосты были крепкие с перилами. На всем лежал отпечаток аккуратности и хозяйственности.</div>
+</details>
+<h3>Настройка с помощью свойства content</h3>
+<p>Но естественно свойством list-style мы не ограничены и по своему усмотрению можем более тонко управлять заголовком, например, с помощью свойства <b>content:</b></p>
+<div class="codeblock">
+    <pre>
+            details > summary {
+        padding: 5px;
+        background-color: #eee;
+        color: #333;
+        border: 1px #ccc solid;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    details > div {
+        border: 1px #ccc solid;
+        padding: 10px;
+    }
+
+details[open] > summary {
+    color:#eee;
+   background-color:#333;
+}
+summary:before {
+   content: "+";
+   font-size: 20px;
+   font-weight: bold;
+   margin: -5px 5px 0 0;
+}
+
+details[open] summary:before {
+   content: "-";
+}
+    </pre>
+</div>
+<p>В данном случае с помощью селектора summary:before устанавливаем содержимое, которое будет располагаться перед основным содержимым элемента summary. Селектор details[open] summary:before позволяет сделать то же самое, только в раскрытом виде. В итоге в скрытом виде маркер будет отображать символ +, а в раскрытом - символ -.</p>
+<details class="ver3">
+    <summary class="ver3">Князь Андрей и Пьер в Богучарово</summary>
+    <div class="ver3">Вокруг дома был рассажен молодой сад. Ограды и ворота были прочные и новые; под навесом стояли две пожарные трубы и бочка,
+        выкрашенная зеленою краской; дороги были прямые, мосты были крепкие с перилами. На всем лежал отпечаток аккуратности и хозяйственности.</div>
+</details>
+
+</body>
+</html>

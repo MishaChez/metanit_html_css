@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_19</title>
+  <style>
+    @font-face {
+
+      font-family: 'Roboto';
+      src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+    }
+
+    body {
+      color: silver;
+      font-family: Roboto;
+      overflow:scroll;    /* добавляем прокрутку  */
+      width: auto;
+      margin: 3% 20% 3% 20%;
+
+      background-image: url("fon.png");
+      background-size: 523px 191px;
+      background-attachment: fixed;
+      background-repeat: round;
+    }
+    h2 {
+
+      margin-right: 30%;
+      margin-left: 40%;
+      margin-bottom: 40px;
+    }
+
+    div.codeblock {
+      background-color: #eeeeee;
+      color: black;
+      margin: 10px;
+      padding: 10px;
+      width:auto ;
+      border: 2px solid slategrey;}
+    div.gradient {
+      width: 200px;
+      height: 100px;
+      background-color: #eee;
+      background-image: linear-gradient(left,black,white);
+      background-image: -o-linear-gradient(left,black,white);
+      background-image: -moz-linear-gradient(left,black,white);
+      background-image: -webkit-linear-gradient(left,black,white);
+    }
+    p.gradient{
+      margin: 0;
+      padding-top: 30px;
+      text-align: center;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+<h2>Линейный градиент</h2>
+<p>Градиенты представляют плавный переход от одного цвета к другому. В CSS3 имеется ряд встроенных градиентов, которые можно использовать для создания фона элемента.</p>.
+<p>Градиенты в CSS не представляют какого-то специального свойства. Они лишь создают значение, которое присваивается свойству <b>background-image</b>.</p>
+<p>Линейный градиент распространяется по прямой от одного конца элемента к другому, осуществляя плавный переход от одного цвета к другому.</p>
+<p>Для создания градиента нужно указать его начало и несколько цветов, например:</p>
+<div class="codeblock">background-image: linear-gradient(left,black,white);</div>
+<p>В данном случае началом градиента будет левый край элемента, который обозначается значением left. Цвета градиента: черный (black) и белый (white). То есть начиная с левого края элемента до правого будет плавно идти переход из черного цвета в белый.</p>
+<p>В использовании градиентов есть один недостаток - многообразие браузеров вынуждает использовать префикс вендора:</p>
+<div class="codeblock"><pre>
+  -webkit- /* Для Google Chrome, Safari, Microsoft Edge, Opera выше 15 версии  */
+  -moz- /* Для Mozilla Firefox  */
+  -o- /* Для Opera старше 15 версии (Opera 12)  */
+</pre></div>
+<p>Так, полноценное использование градиента будет выглядеть следующим образом:</p>
+<div class="codeblock">
+<pre>
+          div {
+            width: 200px;
+            height: 100px;
+            background-color: #eee;
+            background-image: linear-gradient(left,black,white);
+            background-image: -o-linear-gradient(left,black,white);
+            background-image: -moz-linear-gradient(left,black,white);
+            background-image: -webkit-linear-gradient(left,black,white);
+        }
+        p{
+            margin: 0;
+            padding-top: 30px;
+            text-align: center;
+            color:white;
+        }
+</pre>
+</div>
+<div class="gradient"><p class="gradient">Линейный черно-белый градиент</p></div>
+<p>Для установки начала градиента можно использовать следующие значения: left (слева направо), right (справа налево), top (сверху вниз) или bottom (снизу вверх). Например, вертикальный градиент будет выглядеть следующим образом:</p>
+<div class="codeblock">background-image: linear-gradient(bottom,black,white);</div>
+<p>Также можно задать диагональное направление с помощью двух значений:</p>
+<div class="codeblock">background-image: linear-gradient(top left,black,white);</div>
+<p>Кроме конкретных значений типа top или left также можно указать угол от 0 до 360, который определит направление градиента:</p>
+<div class="codeblock">background-image: linear-gradient(30deg,black,white);</div>
+<p>После величины углы указывается слово <b>deg</b>.</p>
+<p>К примеру, 0deg означает, что градиент начинается в левой части и перемещается в правую часть, а при указании 45deg он начинается в нижнем левом углу и перемещается под углом 45° в верхний правый угол.</p>
+<p>После определения начала градиента, можно указать применяемых цветов или опрные точки. Цветов не обязательно должно быть два, их может быть и больше:</p>
+<div class="codeblock">background-image: linear-gradient(top, red, #ccc, blue);</div>
+<p>Все применяемые цвета распределяются равномерно. Однако можно также указать конкретные места фона для цветовых точек. Для этого после цвета добавляется второе значение, которое и определяет положение точки.</p>
+<div class="codeblock">background-image: linear-gradient(left, #ccc, red 20%, red 80%, #ccc);</div>
+<h3>Повторяющийся градиент</h3>
+<p>С помощью repeating-linear-gradient можно создавать повторяющиеся линейные градиенты. Например:</p>
+<pre>
+  background-image: repeating-linear-gradient(left, #ccc 20px, red 30px, rgba(0, 0, 126, .5) 40px);
+  background-image: -moz-repeating-linear-gradient(left, #ccc 20px, red 30px, rgba(0, 0, 126, .5) 40px);
+  background-image: -webkit-repeating-linear-gradient(left, #ccc 20px, red 30px, rgba(0, 0, 126, .5) 40px);
+</pre>
+<p>В данном случае градиент начинается с левого края элемента с полоски серого цвета (#ccc) шириной 20 пикселей, далее до 30 пикселей идет переход к красному цвету, а затем до 40 пикселей выполняется обратный переход к светло-синему цвету (rgba(0, 0, 126, .5)). После этого браузер повторяет градиент, пока не заполнит всю поверхность элемента.</p>
+</body>
+</html>
