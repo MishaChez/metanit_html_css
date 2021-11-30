@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_9</title>
+    <link rel="stylesheet" href="7_9.css">
+    <style>
+        .rel {
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 300px;
+
+        }
+        .header1 {
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            width: 430px;
+            height: 100px;
+            background-color: rgba(128, 0, 0, 0.5);
+        }
+        .outer {
+            position: absolute;
+            left: 80px;
+            top: 40px;
+            width: 430px;
+            height: 100px;
+            border: 1px solid #cccccc;
+        }
+        .inner {
+            position: absolute;
+            left: 80px;
+            top: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(128, 0, 0, 0.5);
+        }
+        .redBlock {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            width: 80px;
+            height: 80px;
+            background-color: red;
+        }
+        .blueBlock {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            width: 80px;
+            height: 80px;
+            background-color: blue;
+        }
+        .redBlockzindex {
+            z-index: 100;
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            width: 80px;
+            height: 80px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+<div id="header"><h1>Позиционирование</h1></div>
+<div id="wrapper">
+    <div id="menu">
+    <ul class="nav">
+        <li><a href="#poz1">Абсолютное позиционирование</a></li>
+        <li><a href="#poz2">Относительное позиционирование</a></li>
+        <li><a href="#poz3">Свойство z-index</a></li>
+    </ul>
+    </div>
+    <div id="main">
+        <p>CSS предоставляет возможности по позиционированию элемента, то есть мы можем поместить элемент в определенное место на странице</p>
+        <p>Основным свойством, которые управляют позиционированием в CSS, является свойство <b>position</b>. Это свойство может принимать одно из следующих значений:</p>
+        <ul>
+            <li><b>static</b>: стандартное позиционирование элемента, значение по умолчанию</li>
+            <li><b>absolute</b>: элемент позиционируется относительно границ элемента-контейнера, если у того свойство position не равно static</li>
+            <li><b>relative</b>: элемент позиционируется относительно его позиции по умолчанию. Как правило, основная цель относительного позиционирования заключается не в том, чтобы переместить элемент, а в том, чтобы установить новую точку привязки для абсолютного позиционированния вложенных в него элементов</li>
+            <li><b>fixed</b>: элемент позиционируется относительно окна бразуера, это позволяет создать фиксированные элементы, которые не меняют положения при прокрутке</li>
+        </ul>
+        <p>Не следует одновременно применять к элементу свойство float и любой тип позиционирования, кроме static (то есть тип по умолчанию).</p>
+        <h3 id="poz1">Абсолютное позиционирование</h3>
+        <p>Область просмотра браузера имеет верхний, нижний, правый и левый края. Для каждого из этих четырех краев есть соответствующее свойство CSS: left (отступ от края слева), right (отступ от края справа), top (отступ от края контейнера сверху) и bottom (отступ снизу). Значения этих свойств указываются в пикселях, em или процентах. Необязательно задавать значения для всех четырех сторон. Как правило, устанавливают только два значения - отступ от верхнего края top и отступ от левого края left.</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Блочная верстка в HTML5&lt;/title>
+        &lt;style>
+            .header {
+                position: absolute;
+                left: 100px;
+                top: 50px;
+                width: 430px;
+                height: 100px;
+                background-color: rgba(128, 0, 0, 0.5);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="header">&lt;/div>
+        &lt;p>HELLO WORLD&lt;/p>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="rel">
+        <div class="header1"></div>
+        <p>HELLO WORLD</p>
+        </div>
+        <p>При этом не столь важно, что после этого элемента div идут какие-то другие элементы. Данный блок div в любом случае будет позиционироваться относительно границ области просмотра браузера.</p>
+        <p>Если элемент с абсоютным позиционированием располагается в другом контейнере, у которого в свою очередь значение свойства position не равно static, то элемент позиционируется относительно границ контейнера:</p>
+        <div class="codeblock">
+            <pre>
+                <!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Позиционирование в HTML5&lt;/title>
+        &lt;style>
+            .outer {
+                position: absolute;
+                left: 80px;
+                top: 40px;
+                width: 430px;
+                height: 100px;
+                border: 1px solid #ccc;
+            }
+            .inner{
+                position: absolute;
+                left: 80px;
+                top: 40px;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(128, 0, 0, 0.5);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="outer">
+            &lt;div class="inner">&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="rel">
+            <div class="outer">
+                <div class="inner"></div>
+            </div>
+
+        </div>
+        <h3 id="poz2">Относительное позиционирование</h3>
+        <p>Относительное позиционирование также задается с помощью значения <b>relative</b>. Для указания конкретной позиции, на которую сдвигается элемент, применяются те же свойства top, left, right, bottom:</p>
+        <div>
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Позиционирование в HTML5&lt;/title>
+        &lt;style>
+            .outer {
+                position: relative;
+                left: 80px;
+                top: 40px;
+                width: 300px;
+                height: 100px;
+                border: 1px solid #ccc;
+            }
+            .inner{
+                position: absolute;
+                left: 80px;
+                top: 40px;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(128, 0, 0, 0.5);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="outer">&lt;div class="inner">&lt;/div>&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <h3 id="poz3">Свойство z-index</h3>
+        <p>По умолчанию при совпадении у двух элементов границ, поверх другого отображается тот элемент, который определен в разметке html последним. Однако свойство <b>z-index</b> позволяет изменить порядок следования элементов при их наложении. В качестве значения свойство принимает число. Элементы с большим значением этого свойства будут отображаться поверх элементов с меньшим значением z-index.</p>
+        <p>Например:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+v&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Позиционирование в HTML5&lt;/title>
+        &lt;style>
+            body{
+                margin:0;
+                padding:0;
+            }
+            .content{
+                position: relative;
+                top: 15px;
+                left: 20px;
+                width: 250px;
+                height: 180px;
+                background-color: #eee;
+                border: 1px solid #ccc;
+            }
+            .redBlock{
+                position: absolute;
+                top: 20px;
+                left:50px;
+                width: 80px;
+                height: 80px;
+                background-color: red;
+            }
+            .blueBlock{
+                position: absolute;
+                top: 80px;
+                left: 80px;
+                width: 80px;
+                height: 80px;
+                background-color: blue;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="content">
+            &lt;div class="redBlock">&lt;/div>
+        &lt;div class="blueBlock">&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="rel">
+            <div class="redBlock"></div>
+            <div class="blueBlock"></div>
+        </div>
+        <p>Теперь добавим к стилю блока redBlock новое правило</p>
+        <div class="codeblock">
+            <pre>
+.redBlock{
+    z-index: 100;
+
+    position: absolute;
+    top: 20px;
+    left:50px;
+    width: 80px;
+    height: 80px;
+    background-color: red;
+}
+            </pre>
+        </div>
+        <p>Здесь z-index равен 100. Но это необязательно должно быть число 100. Так как у второго блока z-index не определен и фактически равен нулю, то для redBlock мы можем установить у свойства z-index любое значение больше нуля.</p>
+        <p>И теперь первый блок будет накладываться на второй, а не наоборот, как было в начале:</p>
+        <div class="rel">
+            <div class="redBlockzindex"></div>
+            <div class="blueBlock"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

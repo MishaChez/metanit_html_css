@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_4</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+        body, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 18px;
+            font-family: Roboto;
+        }
+        #header {
+            background-color: #eee;
+            border-bottom: 1px solid #ccc;
+            height: 80px;
+        }
+        #menu {
+            background-color: #ddd;
+            float: left;
+            width: 150px;
+        }
+        #main {
+            background-color: #f7f7f7;
+            border-left: 1px solid #ccc;
+            margin-left: 150px;
+            padding: 10px;
+        }
+        #footer {
+            border-top: 1px solid #ccc;
+            background-color: #dedede;
+        }
+        #header1 {
+            background-color: #eee;
+            border-bottom: 1px solid #ccc;
+            height: 80px;
+        }
+        #wrapper {
+            background-color: #ddd;
+        }
+        #menu1 {
+
+            float: left;
+            width: 150px;
+        }
+        #main1 {
+            background-color: #f7f7f7;
+            border-left: 1px solid #ccc;
+            margin-left: 150px;
+            padding: 10px;
+        }
+        #footer1 {
+            border-top: 1px solid #ccc;
+            background-color: #dedede;
+        }
+    </style>
+</head>
+<body>
+<div id="header"><h2>https://metanit.com/</h2></div>
+<div id="menu">
+    <ul>
+        <li><a href="7_1.html">Главная</a></li>
+        <li><a href="7_2.html">Блог</a></li>
+        <li><a href="7_3.html">Контакты</a></li>
+        <li><a href="7_4.html">О сайте</a></li>
+    </ul>
+</div>
+<div id="main">
+    <h2>Выравнивание столбцов по высоте</h2>
+    <p>При блочной верстке мы можем столкнуться с проблемой высоты с столбцов, которая может особенно сильно проявиться, если плавающие блоки имеют определенный фон. Рассмотрим проблему на примере:</p>
+    <pre>
+                    body, h2, p{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-size: 18px;
+            }
+            #header{
+                background-color: #eee;
+                border-bottom: 1px solid #ccc;
+                height: 80px;
+            }
+            #menu{
+                background-color: #ddd;
+                float: left;
+                width: 150px;
+            }
+            #main{
+                background-color: #f7f7f7;
+                border-left: 1px solid #ccc;
+                margin-left: 150px;
+                padding: 10px;
+            }
+            #footer{
+                border-top: 1px solid #ccc;
+                background-color: #dedede;
+            }
+    </pre>
+    <p>Здесь уже установлено обтекание, и оно прекрасно работает, вот только в зависимости от количества содержимого одна колонка может быть больше другой</p>
+
+</div>
+<div id="footer">
+    <p>Copyright © MySyte.com, 2021</p>
+</div>
+<div id="header1"><h2>https://metanit.com/</h2></div>
+<div id="wrapper">
+<div id="menu1">
+    <ul>
+        <li><a href="7_1.html">Главная</a></li>
+        <li><a href="7_2.html">Блог</a></li>
+        <li><a href="7_3.html">Контакты</a></li>
+        <li><a href="7_4.html">О сайте</a></li>
+    </ul>
+</div>
+<div id="main1">
+    <h2>Выравнивание столбцов по высоте</h2>
+    <p>В данном случае, если в главном блоке много текста, то блок с меню имеет недостаточную длину.</p>
+    <p>Наиболее распространенным решением данной проблемы является оборачивание плавающего элемента и блока, его обтекающего, в отдельный элемент, у которого устанавливается фон. Затем этот фон используется наименьшим по длине блоком. В итоге получается иллюзия, что блоки имеют равную длину, а фон у блоков установлен корректно.</p>
+    <p>Так, изменим выше созданную страницу следующим образом:</p>
+    <pre>
+        body, h2, p{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-size: 18px;
+            }
+            #header{
+                background-color: #eee;
+                border-bottom: 1px solid #ccc;
+                height: 80px;
+            }
+            #wrapper{
+                background-color: #ddd;
+            }
+            #menu{
+                float: left;
+                width: 150px;
+            }
+            #main{
+                background-color: #f7f7f7;
+                border-left: 1px solid #ccc;
+                margin-left: 150px;
+                padding: 10px;
+            }
+            #footer{
+                border-top: 1px solid #ccc;
+                background-color: #dedede;
+            }
+    </pre>
+        <p>В данном случае плавающий блок menu и обтекающий его блок main обертываются в один элемент wrapper, в котором устанавливается фон для элемента menu. А элемент main, как наибольший элемент, может использовать собственную установку фона.</p>
+</div>
+</div>
+<div id="footer1">
+    <p>Copyright © MySyte.com, 2021</p>
+</div>
+</body>
+</html>

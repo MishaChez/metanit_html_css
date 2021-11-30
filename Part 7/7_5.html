@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_5</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+        #header {
+            background-color: #eee;
+            border-bottom: 1px solid #ccc;
+            height: 80px;
+        }
+        #wrapper {
+            background-color: #ddd;
+        }
+        #menu {
+
+            float: left;
+            width: 150px;
+        }
+        #main {
+            background-color: #f7f7f7;
+            border-left: 1px solid #ccc;
+            margin-left: 150px;
+            padding: 10px;
+        }
+        #footer {
+            border-top: 1px solid #ccc;
+            background-color: #dedede;
+        }
+        div.codeblock {
+            border: dashed 1px #634F36;
+            background-color: #fffff5;
+            font-family: "Courier New", Courier, monospace;
+            padding: 7px;
+            font-size: 80%;
+            margin: 0 0 1em;  /*&lt; &gt;*/
+        }
+        span.ver1 {
+            color: red;
+        }
+        span.blockspan {
+            color: red;
+            display: block;
+        }
+        div.inline {
+            display: inline;
+        }
+        span.ver2 {
+            width: 100px;
+            height: 30px;
+            background-color: #aaa;
+        }
+        span.inlineBlockSpan {
+            width: 100px;
+            height: 30px;
+            background-color: #aaa;
+            display: inline-block;
+        }
+        ul.table {
+            display: table;
+            margin: 0;
+        }
+        li.table{
+            list-style-type: none;
+            display: table-cell;
+            padding: 10px;
+        }
+        .invisible {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <h2>Свойство display</h2>
+</div>
+<div id="wrapper">
+    <div id="menu">
+        <ul>
+            <li><a href="#описание">Описание</a></li>
+            <li><a href="#block">Block</a></li>
+            <li><a href="#inline">Inline</a></li>
+            <li><a href="#inline-block">Inline-block</a></li>
+            <li><a href="#run-in">Run-in</a></li>
+            <li><a href="#table">Табличное представление (table)</a></li>
+            <li><a href="#none">Сокрытие элемента (none)</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <h3 id="описание">Описание</h3>
+        <p>Кроме свойства float, которое позволяет изменять позицию элемента, в CSS есть еще одно важное свойство - <b>display</b>. Оно позволяет управлять блоком элемента и также влиять на его позиционирование относительно соседних элементов.</p>
+        <p>Это свойство может принимать следующие значения:</p>
+        <ul>
+            <li><b>inline</b>: элемент становится строчным, подобно словам в строке текста</li>
+            <li><b>block</b>: элемент становится блочным, как параграф</li>
+            <li><b>inline-block</b>: элемент располагается как строка текста</li>
+            <li><b>list-item</b>: элемент позиционируется как элемент списка обычно с добавление маркера виде точки или порядкового номера</li>
+            <li><b>run-in</b>: тип блока элемента зависит от окружающих элементов</li>
+            <li><b>flex</b>: позволяет осуществлять гибкое позиционирование элментов</li>
+            <li><b>table, inline-table</b>: позволяет расположить элементы в виде таблицы</li>
+            <li><b>none</b>: элемент не виден и удален из разметки html</li>
+        </ul>
+        <h3 id="block">Block</h3>
+        <p>Итак, значение <b>block</b> позволяет определить блочный элемент. Такой элемент визуально отделяется от соседних элементов переносом строки, как, например, элемент параграфа p или элемент div, которые по умолчанию являются блочными и при визуализации веб-страницы визуально переносятся на новую строку.</p>
+        <p>Однако элемент span в отличие от элемента div блочным не является. Поэтому посмотрим, какие с ним произойдут изменения при применении значения block:</p>
+        <div class="codeblock">
+        <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;link href="styles.css" rel="stylesheet">
+        &lt;title>Свойство display в CSS3&lt;/title>
+            &lt;style>
+            span{
+                color: red;
+            }
+            .blockSpan{
+                display: block;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>Это &lt;span>строчный&lt;/span> элемент span&lt;/div>
+    &lt;div>Это &lt;span class="blockSpan">блочный&lt;/span> элемент span&lt;/div>
+&lt;/body>
+&lt;/html>
+        </pre>
+        </div>
+            <div>Это <span class="ver1">строчный</span> элемент span</div>
+            <div>Это <span class="blockspan">блочный</span> элемент span</div>
+        <p>Здесь определено два элемента span, но один из них является блочным, так как к нему применяется стиль display: block;. Поэтому этот элемент span переносится на новую строку.</p>
+
+        <h3 id="inline">Inline</h3>
+        <p>В отличие от блочных элементов строчные встраиваются в строку, так как имеют для свойства display значение <b>inline</b>. Элемент span как раз по умолчанию имеет стиль display: inline, поэтому и встраивается в строку, а не переносится на следующую, как параграфы или div. И теперь произведем обратную процедуру - сделаем блочный элемент div строчным:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Свойство display в CSS3&lt;/title>
+                &lt;style>
+            div{
+                display: inline;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>Первый строчный элемент div.&lt;/div>
+        &lt;div>Второй строчный элемент div.&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="inline">Первый строчный элемент div.</div>
+        <div class="inline">Второй строчный элемент div.</div>
+        <p>Следует учитывать, что при применении значения inline браузер игнорирует некоторые свойства, такие как width, height, margin.</p>
+        <h3 id="inline-block">Inline-block</h3>
+        <p>Еще одно значение - <b>inline-block</b> - представляет элемент, который обладает смесью признаков блочного и строчного элементов. По отношению к соседним внешним элементам такой элемент расценивается как строчный. То есть он не отделяется от соседних элементов переводом строки. Однако по отношению к вложенным элементам он рассматривается как блочный. И к такому элементу применяются свойства width, height, margin.</p>
+        <div class="codeblock">
+            <pre>
+<&lt;DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Свойство display в CSS3&lt;/title>
+                &lt;style>
+            span{
+                width: 100px;
+                height: 30px;
+                background-color: #aaa;
+            }
+            .inineBlockSpan{
+                display: inline-block;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;p>Проехав с полверсты в хвосте &lt;span>колонны&lt;/span>, он остановился&lt;/p>
+        &lt;p>Проехав с полверсты в хвосте &lt;span class="inineBlockSpan">колонны&lt;/span>, он остановился&lt;/p>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <p>Проехав с полверсты в хвосте <span class="ver2">колонны</span>, он остановился</p>
+        <p>Проехав с полверсты в хвосте <span class="inlineBlockSpan">колонны</span>, он остановился</p>
+
+
+        <p>Первый элемент span является строчным, у него значение inline, поэтому для него бессмысленно применять свойства width и height. А вот второй элемент span имеет значение inline-block, поэтому к нему жуе применяются и ширина, и высота, и при необходимости еще можно установить отступы.</p>
+        <h3 id="run-in">Run-in</h3>
+        <p>Значение <b>run-in</b> определяет элемент, который зависит от соседних элементов. И здесь есть три возможных варианта:</p>
+        <ul style="list-style-type: circle">
+            <li>Элемент окружен блочными элементами, тогда фактически он имеет стиль display: block, то есть сам становится блочным</li>
+            <li>Элемент окружен строчными элементами, тогда фактически он имеет стиль display: inline, то есть сам становится строчным</li>
+            <li>Во всех остальных случаях элемент считается блочным</li>
+        </ul>
+
+        <h3 id="table">Табличное представление</h3>
+        <p>Значение <b>table</b> по сути превращает элемент в таблицу. Посмотрим на примере списка:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Свойство display в CSS3&lt;/title>
+        &lt;style>
+            ul{
+                display: table;
+                margin: 0;
+            }
+            li{
+                list-style-type: none;
+                display: table-cell;
+                padding: 10px;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;ul>
+            &lt;li>Item 1&lt;/li>
+            &lt;li>Item 2&lt;/li>
+            &lt;li>Item 3&lt;/li>
+        &lt;/ul>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <ul class="table">
+            <li class="table">Item 1</li>
+            <li class="table">Item 2</li>
+            <li class="table">Item 3</li>
+        </ul>
+
+        <h3 id="none">Сокрытие элемента</h3>
+        <p>Значение <b>none</b> позволяет скрыть элемент, которого как-будто нет на веб-странице:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;;meta charset="utf-8">
+        &lt;title>Свойство display в CSS3&lt;;/title>
+        &lt;style>
+            .invisible{
+                display: none;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;p>Первый параграф&lt;/p>
+        &lt;p class="invisible">Второй параграф&lt;/p>
+        &lt;p>Третий параграф&lt;/p>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <p>Первый параграф</p>
+        <p class="invisible">Второй параграф</p>
+        <p>Третий параграф</p>
+
+
+    </div>
+</div>
+<div id="footer">
+    <p>Тема 7, глава 5 <a href="https://metanit.com/web/html5/8.5.php">metanit</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_7_2</title>
+    <style>
+        html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, dl, dt, dd,
+        ol, ul, li, form, table, caption, tr, th, td, article, aside, footer, header {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        #header {
+            background-color: #feee;
+        }
+        #header h1 {
+            font-size: 1.3em;
+            padding: 15px;
+        }
+        #nav {
+            background-color: #f4f4f4;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        #nav ul {
+            margin-left: 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+        #nav li {
+            float: left;
+        }
+        #nav ul a {
+            display: block;
+            width: 7em;
+            padding: 10px;
+            border-left: 1px solid #cccccc;
+            text-decoration: none;
+            color: #333333;
+            text-align: center;
+        }
+        #nav ul li:last-child a {
+            border-right: 1px solid #cccccc;
+        }
+        #nav ul a:hover {
+            background-color: #aaaaaa;
+            color: #f4f4f4;
+        }
+        #nav ul:after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+        #content {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <h1>Добро пожаловать на сайт</h1>
+    <div id="nav">
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Блог</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">О сайте</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content"><p>helo world</p></div>
+</body>
+</html>

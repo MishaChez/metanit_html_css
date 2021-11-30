@@ -1,0 +1,63 @@
+@font-face {
+
+    font-family: 'Roboto';
+    src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+}
+
+#header {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    height: 80px;
+}
+#wrapper {
+    background-color: #ddd;
+
+}
+#menu {
+
+    float: left;
+    width: 180px;
+}
+ul.nav {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+ul.nav a {
+    display: block;
+    width: 9em;
+    padding: 10px;
+
+    border-top: 1px dashed #333;
+    border-right: 1px dashed #333;
+    border-left: 5px solid #333;
+    text-decoration: none;
+    color: #333;
+}
+ul.nav li:last-child a {
+    border-bottom: 1px dashed #333;
+}
+#nav:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+#main {
+    background-color: #f7f7f7;
+    border-left: 1px solid #ccc;
+    margin-left: 180px;
+    padding: 10px;
+}
+#footer {
+    margin:0;
+    border-top: 1px solid #ccc;
+    background-color: #dedede;
+}
+div.codeblock {
+    border: dashed 1px #634F36;
+    background-color: #fffff5;
+    font-family: "Courier New", Courier, monospace;
+    padding: 7px;
+    font-size: 80%;
+    margin: 0 0 1em;  /*&lt; &gt;*/
+}

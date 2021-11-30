@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7_2</title>
+    <style>
+        @font-face {
+
+            font-family: 'Roboto';
+            src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+        }
+
+        body {
+            color: silver;
+            font-family: Roboto;
+            overflow:scroll;    /* добавляем прокрутку  */
+            width: auto;
+            margin: 3% 20% 3% 20%;
+
+            background-image: url("fon.png");
+            background-size: 523px 191px;
+            background-attachment: fixed;
+            background-repeat: round;
+        }
+        h2 {
+
+            margin-right: 30%;
+            margin-left: 40%;
+            margin-bottom: 40px;
+        }
+
+        div.codeblock {
+            background-color: #eeeeee;
+            color: black;
+            margin: 10px;
+            padding: 10px;
+            width:auto ;
+            border: 2px solid slategrey;}
+
+        #header{
+            background-color: #ccc;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+        }
+        #leftSidebar{
+            background-color: #ddd;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+        }
+        #rightSidebar{
+            background-color: #bbb;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+        }
+        #main{
+            background-color: #eee;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            color: black;
+        }
+        #footer{
+            background-color: #ccc;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+        }
+        #header1{
+            background-color: #ccc;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+        }
+        #leftSidebar1{
+            background-color: #ddd;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+            float: left;
+            width: 150px;
+        }
+        #rightSidebar1{
+            background-color: #bbb;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+            float: right;
+            width: 150px;
+        }
+        #main1{
+            background-color: #eee;
+            height: 200px;
+            margin: 10px 170px 10px 170px;
+            border: 1px solid black;
+            font-size: 20px;
+            color: black;
+
+        }
+        #footer1{
+            background-color: #ccc;
+            margin: 10px;
+            border: 1px solid black;
+            font-size: 20px;
+            height: 80px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<h2>Блочная верстка. Часть 2</h2>
+<p>В прошлой теме было рассмотрено создание страницы с двумя колонками. Подобным образом мы можем добавить на страницу и большее количество колонок и сделать более сложную структуру. Например, добавим на веб-страницу второй сайдбар:</p>
+<div class="codeblock">
+    <pre>
+         div{
+                margin: 10px;
+                border: 1px solid black;
+                font-size: 20px;
+                height: 80px;
+            }
+            #header{
+                background-color: #ccc;
+            }
+            #leftSidebar{
+                background-color: #ddd;
+            }
+            #rightSidebar{
+                background-color: #bbb;
+            }
+            #main{
+                background-color: #eee;
+                height: 200px;
+            }
+            #footer{
+                background-color: #ccc;
+            }
+    </pre>
+</div>
+<div id="header">Шапка сайта</div>
+<div id="leftSidebar">Левый сайдбар</div>
+<div id="rightSidebar">Правый сайдбар</div>
+<div id="main">Основное содержимое</div>
+<div id="footer">Футер</div>
+<p>Здесь опять же код обоих сайдбаров должен идти до блока с основным содержимым, который обтекает их.</p>
+<p>Теперь изменим стили обоих сайдбаров и основного блока:</p>
+<div class="codeblock">
+    <pre>
+        #leftSidebar{
+    background-color: #ddd;
+    float: left;
+    width: 150px;
+}
+#rightSidebar{
+    background-color: #bbb;
+    float: right;
+    width: 150px;
+}
+#main{
+    background-color: #eee;
+    height: 200px;
+    margin-left: 170px;
+    margin-right: 170px;
+}
+    </pre>
+</div>
+<p>Опять же у обоих плавающих блоков - сайдбаров нам надо установить ширину и свойство float - у одного значение left, а у другого right.</p>
+<div id="header1">Шапка сайта</div>
+<div id="leftSidebar1">Левый сайдбар</div>
+<div id="rightSidebar1">Правый сайдбар</div>
+<div id="main1">Основное содержимое</div>
+<div id="footer1">Футер</div>
+</body>
+</html>
