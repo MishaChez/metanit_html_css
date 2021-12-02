@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8_2</title>
+    <link rel="stylesheet" href="8_2.css">
+    <style>
+        div.trapro {
+            width: 100px;
+            height: 100px;
+            margin: 40px 30px;
+            border: 1px solid #333;
+
+            background-color: #ccc;
+            transition-property: background-color;
+            transition-duration: 2s;
+        }
+        div.trapro:hover {
+            background-color: red;
+        }
+        div.trapro1{
+            width: 100px;
+            height: 100px;
+            margin: 40px 30px;
+            border: 1px solid #333;
+            background-color: #ccc;
+
+            transition-property: all;
+            transition-duration: 2s;
+        }
+        div.trapro1:hover{
+            background-color: red;
+            width: 120px;
+            height: 120px;
+            border-color: blue;
+        }
+        div.trapro2{
+            width: 100px;
+            height: 100px;
+            margin: 40px 30px;
+            border: 1px solid #333;
+
+            background-color: #ccc;
+            transition-property: background-color, width;
+            transition-duration: 2s, 10s;
+            transition-timing-function: ease-in-out;
+        }
+        div.trapro2:hover{
+            background-color: red;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="header"><h1>Переходы</h1></div>
+<div id="wrapper">
+    <div id="menu">
+        <ul class="nav">
+            <li><a href="#zakl1">Переходы</a></li>
+            <li><a href="#zakl2">Анимация набора свойств</a></li>
+            <li><a href="#zakl3">Функции анимации</a></li>
+            <li><a href="#zakl4">Задержка перехода</a></li>
+            <li><a href="#zakl5">Свойство transition</a></li>
+        </ul>
+    </div>
+    <div id="main">
+
+        <p><span id="zakl1"></span>Переход (transition) представляет анимацию от одного стиля к другому в течение определенного периода времени.</p>
+        <p>Для создания перехода необходимы прежде всего два набора свойств CSS: начальный стиль, который будет иметь элемент в начале перехода, и конечный стиль - результат перехода. Так, рассмотрим простейший переход:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Переход в CSS3&lt;/title>
+        &lt;style>
+            div{
+                width: 100px;
+                height: 100px;
+                margin: 40px 30px;
+                border: 1px solid #333;
+
+                background-color: #ccc;
+                transition-property: background-color;
+                transition-duration: 2s;
+            }
+            div:hover{
+                background-color: red;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="trapro"></div>
+    <p>Итак, здесь анимируется свойство background-color элемента div. При наведении указателя мыши на элемент он будет менять цвет с серого на красный. А при увеении указателя мыши с пространства элемента будет возвращаться исходный цвет.</p>
+    <p>Чтобы указать свойство как анимируемое, его название передается свойству <b>transition-property</b></p>
+    <div class="codeblock">
+        <p>transition-property: background-color;</p>
+    </div>
+    <p>Вообще анимировать можно множество разных свойств, такие как color, background-color, border-color. Полный список свойств CSS, которые поддаются анимации, можно найти по адресу www.w3.org/TR/css3-transitions/#animatable-properties</p>
+    <p>Далее идет установка времени перехода в секундах с помощью свойства <b>transition-duration</b>:</p>
+    <div class="codeblock">
+        <p>transition-duration: 2s;</p>
+    </div>
+    <p>Кроме секунд можно устанавливать значения в миллисекундах, например, 500 миллисекунд:</p>
+
+    <div class="codeblock">
+    <p>transition-duration: 500ms;</p>
+    </div>
+    <p>И в конце нам надо определить инициатор действия и финальное значение анимируемого свойства background-color. Инициатор представляет действие, которое приводит к изменению одного стиля на другой. В CSS для запуска перехода можно применять псевдоклассы. Например, здесь для создания перехода используется стиль для псевдокласса :hover. То есть при наведении указателя мыши на элемент div, будет срабатывать переход.</p>
+    <p>Кроме псевдокласса :hover можно использовать и другие псевдоклассы, например, :active (ссылка в нажатом состоянии) или :focus (получение элементом фокуса).</p>
+    <p>Также для запуска перехода можно использовать код JavaScript.</p>
+    <h3 id="zakl2">Анимация набора свойств</h3>
+    <p>При необходимости мы можем анимировать сразу несколько свойств CSS. Так, в выше приведенном примере изменим стили следующем образом:</p>
+    <div class="codeblock">
+        <pre>
+div{
+    width: 100px;
+    height: 100px;
+    margin: 40px 30px;
+    border: 1px solid #333;
+    background-color: #ccc;
+
+    transition-property: background-color, width, height, border-color;
+    transition-duration: 2s;
+}
+div:hover{
+    background-color: red;
+    width: 120px;
+    height: 120px;
+    border-color: blue;
+}
+        </pre>
+    </div>
+        <div class="trapro1"></div>
+    <p>Здесь анимируются сразу четыре свойства. Причем анимация для них всех длится 2 секунды, но мы можем для каждого свойства задать свое время:</p>
+    <div>
+        <pre>
+transition-property: background-color, width, height, border-color;
+transition-duration: 2s, 3s, 1s, 2s;
+        </pre>
+    </div>
+    <p>Подобно тому как в свойстве transition-property через запятую идет перечисление анимируемых свойств, в свойстве transition-duration идет перечисление через запятую временных периодов для анимации этих свойств. Причем сопоставление времени определенному свойству идет по позиции, то есть свойство width будет анимироваться 3 секунды.</p>
+    <p>Кроме перечисления через запятую всех анимируемых свойств мы можем просто указать ключевое слово <b>all</b>:</p>
+    <div class="codeblock">
+        <pre>
+            transition-property: all;
+            transition-duration: 2s;
+        </pre>
+    </div>
+    <p>Теперь будут анимироваться все необходимые свойства, которые меняют значения в стиле для псевдокласса <i>:hover</i>.</p>
+    <h3 id="zakl3">Функции анимации</h3>
+    <p>Свойства <b>transition-timing-function</b> позволяет контролировать скорость хода и выполнение анимации. То есть данное свойство отвечет за то, как и в какие моменты времени анимация будет ускоряться или замедляться.</p>
+    <p>В качестве значения это свойство может принимать одну из функций:</p>
+<ul>
+    <li><b>linear</b>: линейная функция плавности, изменение свойства происходит равномерно по времени</li>
+    <li><b>ease</b>: функция плавности, при которой анимация ускоряется к середине и замедляется к концу, предоставляя более естественное изменение</li>
+    <li><b>ease-in</b>: функция плавности, при которой происходит только ускорение в начале</li>
+    <li><b>ease-out</b>: функция плавности, при которой происходит только ускорение в конце анимации</li>
+    <li><b>ease-in-out</b>: функция плавности, при которой анимация ускоряется к середине и замедляется к концу, предоставляя более естественное изменение</li>
+    <li><b>cubic-bezier</b>: для анимации применяется кубическая функция Безье</li>
+</ul>
+<p>Применим функцию <i>ease-in-out</i>:</p>
+<div class="codeblock">
+    <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Переход в CSS3&lt;/title>
+        &lt;style>
+            div{
+                width: 100px;
+                height: 100px;
+                margin: 40px 30px;
+                border: 1px solid #333;
+
+                background-color: #ccc;
+                transition-property: background-color, width;
+                transition-duration: 2s, 10s;
+                transition-timing-function: ease-in-out;
+            }
+            div:hover{
+                background-color: red;
+                width: 200px;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>&lt;/div>
+    &lt;/body>
+&lt;/html>
+    </pre>
+</div>
+    <div class="trapro2"></div>
+    <p>Для использования кубической Безье в функцию cubic-bezier необходимо передать ряд значений:</p>
+    <div class="codeblock">
+        <p>transition-timing-function: cubic-bezier(.5, .6, .24, .18);</p>
+    </div>
+    <h3 id="zakl4">Задержка перехода</h3>
+    <p>Свойство <b>transition-delay</b> позволяет определить задержку перед выполнением перехода:</p>
+    <div class="codeblock">
+        <p>transition-delay: 500ms;</p>
+    </div>
+    <p>Временной период также указывается в секундах (s) или миллисекундах (ms).</p>
+    <h3 id="zakl5">Свойство transition</h3>
+    <p>Свойство <b>transition</b> представляет сокращенную запись выше рассмотренных свойств. Например, следующее описание свойств:</p>
+    <div class="codeblock">
+        <pre>
+transition-property: background-color;
+transition-duration: 3s;
+transition-timing-function: ease-in-out;
+transition-delay: 500ms;
+        </pre>
+    </div>
+    <p>Будет аналогично следующей записи:</p>
+    <div class="codeblock">
+transition: background-color 3s ease-in-out 500ms;
+    </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8_1</title>
+    <link rel="stylesheet" href="8_1.css">
+    <style>
+        div.block {
+            background-color: #ccc;
+            width: 120px;
+            height: 120px;
+            margin:5px 5px 5px 5px;
+            padding: 40px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+        }
+        div.rotateblock {
+            background-color: #ccc;
+            width: 120px;
+            height: 120px;
+            margin:5px;
+            padding: 40px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: rotate(30deg);
+        }
+        div.blockskale05 {
+            background-color: #ccc;
+            width: 120px;
+            height: 120px;
+            margin:5px;
+            padding: 40px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: scale(0.5);
+        }
+        div.blockskale2 {
+            background-color: #ccc;
+            width: 120px;
+            height: 120px;
+            margin:5px 5px 100px 5px;
+            padding: 40px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: scale(2);
+        }
+        div.blockskale2_05 {
+            background-color: #ccc;
+            width: 120px;
+            height: 120px;
+            margin:5px;
+            padding: 40px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: scale(2, 0.5);
+        }
+        .blockskale-1 {
+            background-color: #ccc;
+            width: 120px;
+            height: 120px;
+            margin:5px;
+            padding: 40px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: scaleX(-1);
+        }
+        .blocktranslated {
+
+            width: 120px;
+            height: 120px;
+            margin:5px 5px 5px 5px;
+            padding: 10px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: translate(50px, 30px);
+            background-color: red;
+        }
+        div.divm {
+            display: block;
+            height: 230px;
+
+            margin: 20px;
+        }
+        .blockskew {
+            width: 120px;
+            height: 120px;
+            margin:5px 5px 5px 5px;
+            padding: 10px 10px;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            display: inline-block;
+            transform: skew(30deg, 10deg);
+            background-color: red;
+        }
+        .block1 {
+            background-color: #ccc;
+            width: 100px;
+            height: 100px;
+            margin: 80px 30px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #333;
+        }
+        .block1transform1 {
+            background-color: #ccc;
+            width: 100px;
+            height: 100px;
+            margin: 80px 30px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #333;
+
+            transform: rotate(-45deg);
+
+        }
+        .block1transform2 {
+            background-color: #ccc;
+            width: 100px;
+            height: 100px;
+            margin: 80px 30px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #333;
+
+            transform-origin: left top;
+            transform: rotate(-45deg);
+        }
+        .block1transform3 {
+            background-color: #ccc;
+            width: 100px;
+            height: 100px;
+            margin: 80px 30px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #333;
+
+            transform-origin: right bottom;
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+<div id="header"><h1>Трансформации, переходы и анимации</h1></div>
+<div id="wrapper">
+    <div id="menu">
+        <ul class="nav">
+            <li><a href="#h3_1">Трансформации</a></li>
+            <li><a href="#h3_2">Вращение</a></li>
+            <li><a href="#h3_3">Масштабирование</a></li>
+            <li><a href="#h3_4">Перемещение</a></li>
+            <li><a href="#h3_5">Наклон</a></li>
+            <li><a href="#h3_6">Комбинирование преобразований</a></li>
+            <li><a href="#h3_7">Исходная точка трансформации</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <h3 id="h3_1">Трансформации</h3>
+        <p>Одним из нововведений CSS3 по сравнению с предыдущей версией является встроенная возможность трансформаций элемента. К трансформациям относятся такие действия, как вращение элемента, его масштабирование, наклон или перемещение по вертикали или горизонтали. Для создания трансформаций в CSS3 применяется свойство <b>transform</b>.</p>
+        <h3 id="h3_2">Вращение</h3>
+        <p>Для поворота элемента свойство transform использует функцию rotate:</p>
+        <div>transform: rotate(угол_поворота deg);</div>
+        <p>После слова <b>rotate</b> в скобках идет величина угла поворота в градусах. Например, повернем блок на 30 градусов:</p>
+        <div class="codeblock">
+        <pre>
+                   div{
+                background-color: #ccc;
+                width: 120px;
+                height: 120px;
+                margin:5px;
+                padding: 40px 10px;
+                box-sizing: border-box;
+                border: 1px solid #333;
+                display: inline-block;
+            }
+            .rotated{
+                transform: rotate(30deg);
+            }
+        </pre>
+        </div>
+        <div class="block"></div>
+        <div class="rotateblock">rotate (30deg)</div>
+        <div class="block"></div>
+        <p>При этом можно отметить, что при повороте вращаемый элемент может накладываться на соседние элементы, так как сначала происходит установка положения элементов и только затем поворот.</p>
+        <p>Угол поворота может представлять как положительное, так и отрицательное значение. В случие отрицательного значения поворот производится в противоположную сторону.</p>
+        <h3 id="h3_3">Масштабирование</h3>
+        <p>Применение масштабирования имеет следующую форму:</p>
+        <div class="codeblock">
+            <p>transform: scale(величина_масштабирования);</p>
+        </div>
+        <p>Используем маштабирование:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Трансформации в CSS3&lt;/title>
+        &lt;style>
+            div{
+                background-color: #ccc;
+                width: 120px;
+                height: 120px;
+                margin:5px;
+                padding: 40px 10px;
+                box-sizing: border-box;
+                border: 1px solid #333;
+                display: inline-block;
+            }
+            .halfScale{
+                transform: scale(0.5);
+            }
+            .doubleScale{
+                transform: scale(2);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>&lt;/div>
+        &lt;div class="doubleScale">scale(2)&lt;/div>
+        &lt;div>&lt;/div>
+        &lt;div class="halfScale">scale(0.5)&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="block"></div>
+        <div class="blockskale2">skale(2)</div>
+        <div class="block"></div>
+        <div class="blockskale05">skale(0.5)</div>
+        <p>Значение больше 1 приводит к растяжению по вертикали и горизонтали, а меньше 1 - к сжатию. То есть значение 0.5 приводит к уменьшению в два раза, а значение 1.5 - к увеличению в полтора раза.</p>
+        <p>Можно также задать величины масштабирования отдельно для вертикали и горизонтали:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Трансформации в CSS3&lt;/title>
+        &lt;style>
+            div{
+                background-color: #ccc;
+                width: 120px;
+                height: 120px;
+                margin:5px;
+                padding: 40px 10px;
+                box-sizing: border-box;
+                border: 1px solid #333;
+                display: inline-block;
+            }
+            .scale1{
+                transform: scale(2, 0.5);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>&lt;/div>
+        &lt;div class="scale1">scale(2, 0.5)&lt;/div>
+        &lt;div>&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="block"></div>
+        <div class="blockskale2_05">skale(2, 0 .5)</div>
+        <div class="block"></div>
+        <p>В данном случае по горизонтали будет идти масштабирование в 2 раза, а по вертикали - в 0.5 раз.</p>
+        <p>Также можно по отдельности задать параметры масштабирования: функция <b>scaleX()</b> задает изменение по горизонтали, а <b>scaleY()</b> - по вертикали. Например:</p>
+        <div class="codeblock">
+            <pre>
+.scale1{
+transform: scaleX(2);
+}
+            </pre>
+        </div>
+        <p>Используя отрицательные значения, можно создать эффект зеркального отражения:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Трансформации в CSS3&lt;/title>
+        &lt;style>
+            div{
+                background-color: #ccc;
+                width: 120px;
+                height: 120px;
+                margin:5px;
+                padding: 40px 10px;
+                box-sizing: border-box;
+                border: 1px solid #333;
+                display: inline-block;
+            }
+            .scale1{
+                transform: scaleX(-1);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>&lt;/div>
+        &lt;div class="scale1">scaleX(-1)&lt;/div>
+        &lt;div>&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="block"></div>
+        <div class="blockskale-1">skaleX(-1)</div>
+        <div class="block"></div>
+        <h3 id="h3_4">Перемещение</h3>
+        <p>Для перемещения элемента используется функция <b>translate</b>:</p>
+        <div class="codeblock">
+            <p>transform: translate(offset_X, offset_Y);</p>
+        </div>
+        <p>Значение offset_X указывает, на сколько элемент смещается по горизонтали, а offset_Y - по вертикали.</p>
+        <p>К примеру, сместим блок на 30 пикселей вниз и на 50 пикселей вправо:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Трансформации в CSS3&lt;/title>
+        &lt;style>
+            div{
+                background-color: #ccc;
+                width: 120px;
+                height: 120px;
+                margin:5px;
+                padding: 40px 10px;
+
+                box-sizing: border-box;
+                border: 1px solid #333;
+                display: inline-block;
+            }
+            .translated{
+                transform: translate(50px, 30px);
+                background-color:red;
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div>&lt;/div>
+        &lt;div class="translated">&lt;/div>
+        &lt;div>&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="divm">
+        <div class="block"></div>
+        <div class="blocktranslated"></div>
+        <div class="block"></div>
+        </div>
+        <p>В качестве единиц измерения смещения можно применять не только пиксели, но и любые другие единицы измерения длины в CSS - em, % и тд.</p>
+        <p>С помощью дополнительных функций можно отдельно применять смещения к горизонтали или вертикали: <b>translateX()</b> (перемещение по горизонтали) и <b>translateY()</b> (перемещение по вертикали). Например:</p>
+        <div class="codeblock">
+            <p>transform: translateX(30px);</p>
+        </div>
+        <p>Кроме положительных значений также можно использовать и отрицательные - они перемещают элемент в противоположную сторону:</p>
+        <div class="codeblock">
+            <p>transform: translateY(-2.5em);</p>
+        </div>
+        <h3 id="h3_5">Наклон</h3>
+        <p>Для наклона элемента применяется функция <b>skew()</b>:</p>
+        <div>
+            <p>transform: skew(X, Y);</p>
+        </div>
+        <p>Первый параметр указывает, на сколько градусов наклонять элемент по оси X, а второй - значение наклона по оси Y.</p>
+        <div class="codeblock">
+            <pre>
+            &lt;!DOCTYPE html>
+            &lt;html>
+            &lt;head>
+                &lt;meta charset="utf-8">
+                &lt;title>Трансформации в CSS3&lt;/title>
+                &lt;style>
+                    div{
+                        background-color: #ccc;
+                        width: 120px;
+                        height: 120px;
+                        margin:5px;
+                        padding: 40px 10px;
+
+                        box-sizing: border-box;
+                        border: 1px solid #333;
+                        display: inline-block;
+                    }
+                    .skewed{
+                        transform: skew(30deg, 10deg);
+                        background-color:red;
+                    }
+                &lt;/style>
+            &lt;/head>
+            &lt;body>
+            &lt;div>&lt;/div>
+            &lt;div class="skewed">&lt;/div>
+            &lt;div>&lt;/div>
+            &lt;/body>
+            &lt;/html>
+                </pre>
+        </div>
+        <div class="divm">
+        <div class="block"></div>
+        <div class="blockskew"></div>
+        <div class="block"></div>
+        </div>
+        <p>Для создания наклона только по одной оси для другой оси надо использовать значение 0. Например, наклон на 45 градусов по оси X:</p>
+        <div class="codeblock">
+            <p>transform: skew(45deg, 0);</p>
+        </div>
+        <p>Или наклон на 45 градусов только по оси Y:</p>
+        <div class="codeblock">
+            <p>transform: skew(0,45deg);</p>
+        </div>
+        <p>Для создания наклона отдельно по оси X и по оси Y в CSS есть специальные функции: <b>skewX()</b> и <b>skewY()</b> соответственно.</p>
+        <div class="codeblock">
+            <p>transform: skewX(45deg);</p>
+        </div>
+        <p>Также можно передавать отрицательные значения. Тогда наклон будет осуществляться в противоположную сторону:</p>
+        <div class="codeblock">
+            <p>transform: skewX(-30deg);</p>
+        </div>
+        <h3 id="h3_6">Комбинирование преобразований</h3>
+        <p>Если нам надо применить к элементу сразу несколько преобразований, скажем, вращаение и перемещение, то мы можем их комбинировать. Например, применение всех четырех преобразований:</p>
+        <div class="codeblock">
+            <p>transform: translate(50px, 100px) skew(30deg, 10deg) scale(1.5) rotate(90deg);</p>
+        </div>
+        <p>Браузер применяет все эти функции в порядке их следования. То есть в данном случае сначала к элементу применяется перемещение, потом наклон, потом масштабирование и в конце вращение.</p>
+        <h3 id="h3_7">Исходная точка трансформации</h3>
+        <p>По умолчанию при применении трансформаций браузер в качестве точки начала преобразования использует центр элемента. Но с помощью свойства <b>transform-origin</b> можно изменить исходную точку. Это свойство в качестве значения принимает значения в пикселях, em и процентах. Также для установки точки можно использовать ключевые слова:</p>
+        <ul>
+            <li><b>left top</b>: левый верхний угол элемента</li>
+            <li><b>left bottom</b>: левый нижний угол элемента</li>
+            <li><b>right top</b>: правый верхний угол элемента</li>
+            <li><b>right bottom</b>: правый нижний угол элемента</li>
+        </ul>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Трансформации в CSS3&lt;/title>
+        &lt;style>
+            div{
+                background-color: #ccc;
+                width: 100px;
+                height: 100px;
+                margin: 80px 30px;
+                float: left;
+                box-sizing: border-box;
+                border: 1px solid #333;
+            }
+            .transform1{
+                transform: rotate(-45deg);
+            }
+            .transform2{
+                transform-origin: left top;
+                transform: rotate(-45deg);
+            }
+            .transform3{
+                transform-origin: right bottom;
+                transform: rotate(-45deg);
+            }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="transform1">&lt;/div>
+        &lt;div class="transform2">&lt;/div>
+        &lt;div class="transform3">&lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="divm">
+        <div class="block1transform1"></div>
+        <div class="block1transform2"></div>
+        <div class="block1transform3"></div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
