@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_4</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-container {
+            display: flex;
+            border: 2px solid #000 ;
+            height: 4em;
+            flex-flow: row wrap;
+
+        }
+        .flex-item {
+            text-align: center;
+            font-size: 1em;
+            padding: 1.5em;
+            color: white;
+            opacity: 0.8;
+        }
+        .group1 {
+            order: -1;
+        }
+        .group2 {
+            order: 1;
+        }
+        .color1 {background-color: #675BA7;}
+        .color2 {background-color: #9BC850;}
+        .color3 {background-color: #A62E5C;}
+        .color4 {background-color: #2A9FBC;}
+        .color5 {background-color: #F15B2A;}
+    </style>
+</head>
+<body>
+<div id="header"><h1>Flex-flow. Порядок элементов</h1></div>
+<div id="wrapper">
+    <div id="menu">
+        <ul class="nav">
+            <li><a href="#zakl1">Flex-flow</a></li>
+            <li><a href="#zakl2">Свойство order</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <h3 id="zakl1">Flex-flow</h3>
+        <p>Свойство <b>flex-flow</b> позволяет установить значения сразу для обоих свойств flex-direction и flex-wrap. Оно имеет следующий формальный синтаксис:</p>
+        <div class="codeblock">
+            <pre>
+                flex-flow: [flex-direction] [flex-wrap]
+            </pre>
+        </div>
+        <p>Причем второе свойство - flex-wrap можно в принципе опустить, тогда для него будет использоваться значение по умолчанию - nowrap.</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+
+            .flex-container {
+                display: flex;
+                border: solid 0.25em #000;
+                height:8.25em;
+                flex-flow: row wrap;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.5em;
+                color: white;
+                opacity: 0.8;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #F15B2A;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item color5">Flex Item 5&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="flex-container">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+        <h3 id="zakl2">Свойство order</h3>
+        <p>Свойство <b>order</b> позволяет установить группу для flex-элемента, позволяя тем самым переопределить его позицию внутри flex-контейнера. В качестве значения свойство принимает числовой порядок группы. К одной группе может принадлежать несколько элементов.</p>
+        <p>Например, элементы в группе 0 располагаются перед элементами с группой 1, а элементы с группой 1 располагаются перед элементами с группой 2 и так далее.</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+
+            .flex-container {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.5em;
+                color: white;
+                opacity: 0.8;
+            }
+            .group1{
+                order:-1;
+            }
+            .group2{
+                order:1;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #F15B2A;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2 group2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3 group2">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item color5 group1">Flex Item 5&lt;/div>
+        &lt;/div>
+&lt;/html>
+            </pre>
+        </div>
+        <p>В данном случае определены 3 группы. Первый отображается последний элемент, так как он имеет группу -1:</p>
+        <div class="flex-container">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2 group2">Flex item 2</div>
+            <div class="flex-item color3 group2">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5 group1">Flex item 5</div>
+        </div>
+        <p>По умолчанию если у элементов явным образом не указано свойство order, то оно имеет значение 0. И последними в данном случае отображаются второй и третий элемент, так как у них свойство order равно 1.</p>
+    </div>
+</div>
+<div id="footer">Тема 12, глава 4 <a href="https://metanit.com/web/html5/12.4.php">Metanit</a></div>
+</body>
+</html>

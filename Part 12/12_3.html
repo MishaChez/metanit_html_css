@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_3</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+      .flex-container {
+          display: flex;
+          border: solid 0.25em #000;
+          width: 60%;
+          height: 8.25em;
+          flex-wrap: nowrap;
+      }
+      .flex-container-wrap {
+          display: flex;
+          border: solid 0.25em #000;
+          width: 60%;
+          height: 8.25em;
+          margin-bottom: 70px;
+
+          flex-wrap: wrap;
+      }
+      .row {
+          flex-direction: row;
+      }
+      .row-reverse {
+          flex-direction: row-reverse;
+
+      }
+      .column {
+          flex-direction: column;
+      }
+      .column-reverse {
+          flex-direction: column-reverse;
+      }
+      .flex-item {
+          text-align: center;
+          font-size: 1em;
+          padding: 1.5em;
+          color: white;
+          opacity: 0.8;
+      }
+      .color1 {background-color: #6758A7}
+      .color2 {background-color: #9BC850;}
+      .color3 {background-color: #A62E5C;}
+      .color4 {background-color: #2A9FBC;}
+      .color5 {background-color: #F15B2A;}
+  </style>
+</head>
+<body>
+<div id="header"><h1>Flex-wrap</h1></div>
+<div id="wrapper">
+    <div id="menu"></div>
+    <div id="main">
+        <p>Свойство <b>flex-wrap</b> определяет, будет ли flex-контейнер несколько рядов элементов (строк или столбцов) в случае если его размеры недостаточны, чтобы вместить в один ряд все элементы. Это свойство может принимать следующие значения:</p>
+        <ul>
+            <li><b>nowrap</b>: значение по умолчанию, которое определяет flex-контейнер, где все элементы раполагаются в одну строку (при расположении в виде строк) или один столбец (при расположении в столбик)</li>
+            <li><b>wrap</b>: если элементы не помещаются во flex-контейнер, то создает дополнительные ряды в контейнере для размещения элементов. При расположении в виде строки содаются дополнительные строки, а при расположении в виде столбца добавляются дополнительные столбцы</li>
+            <li><b>wrap-reverse</b>: то же самое, что и значение wrap, только элементы располагаются в обратном порядке</li>
+        </ul>
+        <p>Например, возьмем значение по умолчанию nowrap:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border: solid 0.25em #000;
+                width: 60%;
+                height:8.25em;
+                flex-wrap:nowrap;
+            }
+            .row {
+                flex-direction: row;
+            }
+            .row-reverse {
+                flex-direction: row-reverse;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.5em;
+                color: white;
+                opacity: 0.8;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #F15B2A;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;h3>Row&lt;/h3>
+        &lt;div class="flex-container row">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item color5">Flex Item 5&lt;/div>
+        &lt;/div>
+
+        &lt;h3>Row-reverse&lt;/h3>
+        &lt;div class="flex-container row-reverse">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item color5">Flex Item 5&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <p>Здесь в каждом из flex-контейнеров по пять элементов, однако ширина контейнера может вмещать не все элементы, тогда они уходят за границу контейнера:</p>
+        <h3>Row</h3>
+        <div class="flex-container row">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+
+        <h3>Row-rewerse</h3>
+        <div class="flex-container row-reverse">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+        <p>При установке значения wrap во flex-контейнере добавляются дополнительные ряды для помещения всех элементов в контейнере. Так, изменим значение свойства flex-wrap в контейнере:</p>
+        <div class="codeblock">
+            <pre>
+.flex-container {
+    display: flex;
+    border: solid 0.25em #000;
+    width: 60%;
+    height:8.25em;
+
+    flex-wrap:wrap;
+}
+            </pre>
+        </div>
+        <p>В этом случае появится дополнительная стока:</p>
+        <h3>Row</h3>
+        <div class="flex-container-wrap row">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+
+        <h3>Row-rewerse</h3>
+        <div class="flex-container-wrap row-reverse">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+        <p>При расположении в виде столбца контейнер будет создавать дополнительные столбцы:</p>
+        <div class="codeblock">
+          <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+
+            .flex-container {
+                display: flex;
+                border: solid 0.25em #000;
+                width: 60%;
+                height:8.25em;
+                flex-wrap:wrap;
+            }
+            .column {
+                flex-direction: column;
+            }
+            .column-reverse {
+                flex-direction: column-reverse;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.5em;
+                color: white;
+                opacity: 0.8;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #F15B2A;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;h3>Column&lt;/h3>
+        &lt;div class="flex-container column">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item color5">Flex Item 5&lt;/div>
+        &lt;/div>
+
+        &lt;h3>Column-reverse&lt;/h3>
+        &lt;div class="flex-container column-reverse">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item color5">Flex Item 5&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+          </pre>
+        </div>
+        <h3>Column</h3>
+        <div class="flex-container-wrap column">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+
+        <h3>column-rewerse</h3>
+        <div class="flex-container-wrap column-reverse">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+            <div class="flex-item color4">Flex item 4</div>
+            <div class="flex-item color5">Flex item 5</div>
+        </div>
+    </div>
+</div>
+<div id="footer">Тема 12, глава 3 <a href="https://metanit.com/web/html5/12.3.php">Metanit</a></div>
+</body>
+</html>

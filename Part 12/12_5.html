@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_5</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-container {
+            display: flex;
+            border: 2px solid #cccccc;
+        }
+        .flex-start {
+            justify-content: flex-start;
+        }
+        .flex-end {
+            justify-content: flex-end;
+        }
+        .center {
+            justify-content: center;
+        }
+        .space-between {
+            justify-content: space-between;
+        }
+        .space-around {
+            justify-content: space-around;
+        }
+        .flex-item {
+            text-align: center;
+            font-size: 16px;
+            padding: 24px;
+            color: white;
+        }
+        .color1 {background-color: #675BA7;}
+        .color2 {background-color: #9BC850;}
+        .color3 {background-color: #A62E5C;}
+        .color4 {background-color: #2A9FBC;}
+        .color5 {background-color: #F15B2A;}
+
+    </style>
+</head>
+<body>
+<div id="header"><h1>Выравнивание элементов. justify-content</h1></div>
+<div id="wrapper">
+    <div id="menu"></div>
+    <div id="main">
+        <p>Иногда мы можем сталкиваться с тем, что пространство flex-контейнеров по размеру отличается от пространства, необходимого для flex-элементов. Например:</p>
+        <ul>
+            <li>flex-элементы не используют все пространство flex-контейнера</li>
+            <li>flex-элементам требуется большее пространство, чем доступно во flex-контейнере. В этом случае элементы выходят за пределы контейнера.</li>
+        </ul>
+        <p>Для управления этими ситуациями мы можем применять свойство <b>justify-content</b>. Оно выравнивает элементы вдоль основной оси - main axis (при расположении в виде строки по горизонтали, при расположении в виде столбца - по вертикали) и принимает следующие значения:</p>
+        <ul>
+            <li><b>flex-start</b>: значение по умолчанию, при котором первый элемент выравнивается по левому краю контейнера(при расположении в виде строки) или по верху (при расположении в виде столбца), за ним располагается второй элемент и так далее.</li>
+            <li><b>flex-end</b>: последний элемент выравнивается по правому краю (при расположении в виде строки) или по низу (при расположении в виде столбца) контейнера, за ним выравнивается предпоследний элемент и так далее</li>
+            <li><b>center</b>: элементы выравниваются по центру</li>
+            <li><b>space-between</b>: если в стоке только один элемент или элементы выходят за границы flex-контейнера, то данное значение аналогично flex-start. В остальных случаях первый элемент выравнивается по левому краю (при расположении в виде строки) или по верху (при расположении в виде столбца), а последний элемент - по правому краю контейнера (при расположении в виде строки) или по низу (при расположении в виде столбца). Все оставшееся пространство между ними равным образом распределяется между остальными элементами</li>
+            <li><b>space-around</b>: если в строке только один элемент или элементы выходят за пределы контейнера, то его действие аналогично значению center. В ином случае элементы равным образом распределяют пространство между левым и правым краем контейнера, а расстояние между первым и последним элементом и границами контейнера составляет половину расстояния между элементами.</li>
+        </ul>
+        <p>Выравнивание для расположения элементов в виде строки:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+
+            .flex-container {
+                display: flex;
+                border:1px #ccc solid;
+            }
+            .flex-end{
+                justify-content: flex-end;
+            }
+            .center{
+                justify-content: center;
+            }
+            .space-between{
+                justify-content: space-between;
+            }
+            .space-around{
+                justify-content: space-around;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #F15B2A;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;h3>Flex-end&lt;/h3>
+        &lt;div class="flex-container flex-end">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+        &lt;/div>
+        &lt;h3>Center&lt;/h3>
+        &lt;div class="flex-container center">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+        &lt;/div>
+        &lt;h3>Space-between&lt;/h3>
+        &lt;div class="flex-container space-between">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+        &lt;/div>
+        &lt;h3>Space-around&lt;/h3>
+        &lt;div class="flex-container space-around">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item color4">Flex Item 4&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <h3>Flex-start</h3>
+        <p>значение по умолчанию, при котором первый элемент выравнивается по левому краю контейнера(при расположении в виде строки) или по верху (при расположении в виде столбца), за ним располагается второй элемент и так далее.</p>
+        <div class="flex-container flex-start">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+            <div class="flex-item color4">Flex Item 4</div>
+            <div class="flex-item color5">Flex Item 5</div>
+        </div>
+        <h3>Flex-end</h3>
+        <p>последний элемент выравнивается по правому краю (при расположении в виде строки) или по низу (при расположении в виде столбца) контейнера, за ним выравнивается предпоследний элемент и так далее</p>
+        <div class="flex-container flex-end">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+            <div class="flex-item color4">Flex Item 4</div>
+            <div class="flex-item color5">Flex Item 5</div>
+        </div>
+        <h3>Center</h3>
+        <p>элементы выравниваются по центру</p>
+        <div class="flex-container center">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+            <div class="flex-item color4">Flex Item 4</div>
+            <div class="flex-item color5">Flex Item 5</div>
+        </div>
+        <h3>Space-between</h3>
+        <p>если в стоке только один элемент или элементы выходят за границы flex-контейнера, то данное значение аналогично flex-start. В остальных случаях первый элемент выравнивается по левому краю (при расположении в виде строки) или по верху (при расположении в виде столбца), а последний элемент - по правому краю контейнера (при расположении в виде строки) или по низу (при расположении в виде столбца). Все оставшееся пространство между ними равным образом распределяется между остальными элементами</p>
+        <div class="flex-container space-between">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+            <div class="flex-item color4">Flex Item 4</div>
+            <div class="flex-item color5">Flex Item 5</div>
+        </div>
+        <h3>Space-around</h3>
+        <p>если в строке только один элемент или элементы выходят за пределы контейнера, то его действие аналогично значению center. В ином случае элементы равным образом распределяют пространство между левым и правым краем контейнера, а расстояние между первым и последним элементом и границами контейнера составляет половину расстояния между элементами.</p>
+        <div class="flex-container space-around">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+            <div class="flex-item color4">Flex Item 4</div>
+            <div class="flex-item color5">Flex Item 5</div>
+        </div>
+    </div>
+</div>
+<div id="footer">Глава 12, тема 5 <a href="https://metanit.com/web/html5/12.5.php">Metanit</a></div>
+</body>
+</html>

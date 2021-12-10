@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_2</title>
+  <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-container {
+            display: flex;
+            border: 2px solid #cccccc;
+        }
+        .row {
+            flex-direction: row;
+        }
+        .row-reverse {
+            flex-direction: row-reverse;
+        }
+        .column {
+            flex-direction: column;
+        }
+        .column-reverse {
+            flex-direction: column-reverse;
+        }
+        .flex-item {
+            text-align: center;
+            font-size: 1.1em;
+            padding: 1.5em;
+            color: white;
+        }
+        .color1 {background-color: #6758A7}
+        .color2 {background-color: #9BC850}
+        .color3 {background-color: #A62E5C}
+
+
+    </style>
+</head>
+<body>
+<div id="header"><h1>Направление flex-direction</h1></div>
+<div id="wrapper">
+    <div id="menu"></div>
+    <div id="main">
+        <h3>Направление flex-direction</h3>
+        <p>Flex-элементы во flex-контейнере могут иметь определенное направление, а именно они могут располагаться в виде строк или в виде столбцов. Для управления направлением элементов CSS3 предоставляет свойство flex-direction. Оно определяет направление элементов и может принимать следующие значения:</p>
+        <ul style="list-style-type: circle">
+            <li><b>row</b>: значение по умолчанию, при котором элементы располагаются в виде строки слева направо</li>
+            <li><b>row-reverse</b>: элементы также располагаются в виде стоки только в обратном порядке справа налево</li>
+            <li><b>column</b>: элементы располагаются в столбик сверху вниз</li>
+            <li><b>column-reverse</b>: элементы располагаются в столбик в обратном порядке снизу вверх</li>
+        </ul>
+        <p>Например, расположение в виде строки:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px solid #ccc;
+            }
+            .row {
+                flex-direction: row;
+            }
+            .row-reverse {
+                flex-direction: row-reverse;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;h3>Row&lt;/h3>
+        &lt;div class="flex-container row">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+
+        &lt;h3>Row-reverse&lt;/h3>
+        &lt;div class="flex-container row-reverse">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <h3>Row</h3>
+        <div class="flex-container row">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+        </div>
+
+        <h3>Row-reverse</h3>
+        <div class="flex-container row-reverse">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+        </div>
+        <p>Аналогично работает расположение в виде столбца:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px solid #ccc;
+            }
+            .column {
+                flex-direction: column;
+            }
+            .column-reverse {
+                flex-direction: column-reverse;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.2em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;h3>Column&lt;/h3>
+        &lt;div class="flex-container column">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+
+        &lt;h3>Column-reverse&lt;/h3>
+        &lt;div class="flex-container column-reverse">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <h3>Column</h3>
+        <div class="flex-container column">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+        </div>
+
+        <h3>Column-reverse</h3>
+        <div class="flex-container column-reverse">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+        </div>
+    </div>
+</div>
+<div id="footer">Тема 12, глава 2 <a href="https://metanit.com/web/html5/12.2.php">Metanit</a></div>
+</body>
+</html>

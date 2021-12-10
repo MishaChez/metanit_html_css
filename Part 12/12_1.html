@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_1</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-container {
+            display: flex;
+        }
+        .flex-container1 {
+            display: flex;
+            border: 2px solid #cccccc;
+        }
+        .inline-flex-container {
+            display: inline-flex;
+            border: 2px solid #cccccc;
+            margin-top: 10px;
+        }
+        .flex-item {
+            text-align: center;
+            font-size: 1.1em;
+            padding: 1.5em;
+            color: white;
+        }
+        .color1 {background-color: #6758A7}
+        .color2 {background-color: #9BC850}
+        .color3 {background-color: #A62E5C}
+    </style>
+</head>
+<body>
+<div id="header"><h1>Flexbox</h1></div>
+<div id="wrapper">
+    <div id="menu">
+        <ul class="nav">
+            <li><a href="#zakl1">Flex Container</a></li>
+            <li><a href="#zakl2">Основные понятия</a></li>
+            <li><a href="#zakl3">Создание flex-контейнера</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <h3 id="zakl1">Что такое Flexbox. Flex Container</h3>
+        <p><b>Flexbox</b> - это общее название для модуля <b>Flexible Box Layout</b>, который имеется в CSS3. Данный модуль определяет особый режим компоновки/верстки пользовательского интерфейса, который называется <b>flex layout</b>. В этом плане Flexbox предоставляет иной подход к созданию пользовательского интерфейса, который отличается от табличной или блочной верстки. Развернутое описание стандарта по модулю можно посмотреть в спецификации.</p>
+        <p>Благодаря Flexbox проще создавать сложные, комплексные интерфейсы, где мы с легкостью можем переопределять направление и выравнивание элементов, создавать адаптивные табличные представления. Кроме того, Flexbox довольно прост в использовании. Единственная проблема, которая может возникнуть при его применении, - это кроссбраузерность. Например, в Internet Explorer поддержка Flexbox и то частичная появилась только в последней версии - IE11. В то же время все современные браузеры, в том числе Microsoft Edge, Opera, Google Chrome, Safari, Firefox, имеют полную поддержку данного модуля.</p>
+        <p>Основными составляющими компоновки flexbox являются flex-контейнер (flex container) и flex-элементы (flex items). <b>Flex container</b> представляет некоторый элемент, внутри которого размещены flex-элементы.</p>
+        <h3 id="zakl2">Основные понятия</h3>
+        <p>Прежде чем переходить к изучению верстки flexbox, стоит рассмотреть некоторые основные понятия.</p>
+        <p>Одно из ключевых понятий представляет <b>main axis</b> или центральная ось. Это условная ось во flex-контейнере, вдоль которой позиционируются flex-элементы.</p>
+        <img src="1.png" alt="1">
+        <p>Элементы в контейнере могут располагаться по горизонтали в виде строки и по вертикали в виде столбца. В зависимости от типа расположения будет меняться и центральная ось. Если расположение в виде строки, то центральная ось направлена горизонтально слева направо. Если расположение в виде столбца, то центральная ось направлена вертикально сверху вниз.</p>
+        <p>Термины <b>main start</b> и <b>main end</b> описывают соответственно начало и конец центральной оси, а расстояние между между ними обозначается как <b>main size</b>.</p>
+        <p>Кроме основной оси существует также поперечная ось или <b>cross axis</b>. Она перпендикулярна основной. При расположении элементов в виде строки cross axis направлена сверху вниз, а при расположении в виде столбца она направлена слева направо. Начало поперечной оси обозначается как <b>cross start</b>, а ее конец - как <b>cross end</b>. Расстояние между ними описывается термином <b>cross size</b>.</p>
+        <p>То есть, если элементы располагаются в строку, то main size будет представлять ширину контейнера или элементов, а cross size - их высоту. Если же элементы располагаются в столбик, то, наоборот, main size представляет высоту контейнера и элементов, а cross size - их ширину.</p>
+        <h3 id="zakl3">Создание flex-контейнера</h3>
+        <p>Для создания flex-контейнера необходимо присвоить его стилевому свойству <b>display</b> одно из двух значений: <b>flex</b> или <b>inline-flex</b>.</p>
+        <p>Создадим простейшую веб-страницу, которая применяет flexbox:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <p>Для контейнера flex-container установлено свойство display:flex. В нем располагается три flex-элемента.</p>
+        <div class="flex-container">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+        </div>
+        <p>Если значение flex определяет контейнер как блочный элемент, то значение inline-flex определяет элемент как строчный (inline). Рассмотрим оба способа на примере:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:2px solid #ccc;
+            }
+            .inline-flex-container {
+                display: inline-flex;
+                border:2px solid #ccc;
+                margin-top:10px;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item color1">Flex Item &lt;/div>
+            &lt;div class="flex-item color2">Flex Item &lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+
+        &lt;div class="inline-flex-container">
+            &lt;div class="flex-item color1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item color2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item color3">Flex Item 3&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="flex-container1">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+        </div>
+        <div class="inline-flex-container">
+            <div class="flex-item color1">Flex item 1</div>
+            <div class="flex-item color2">Flex item 2</div>
+            <div class="flex-item color3">Flex item 3</div>
+        </div>
+        <p>В частности, в первом случае flex-контейнер растягивается по ширине страницы, а во втором случае занимает именно столько места, сколько необходимо для flex-элементов.</p>
+    </div>
+</div>
+<div id="footer">Глава 12, тема 1 <a href="https://metanit.com/web/html5/12.1.php">Metanit</a></div>
+</body>
+</html>

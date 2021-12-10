@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_7</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-container {
+            display: flex;
+            border: 1px solid #cccccc;
+            flex-wrap: wrap;
+            height: 200px;
+            align-content: flex-start;
+        }
+        .flex-container1 {
+            display: flex;
+            border: 1px solid #cccccc;
+            flex-wrap: wrap;
+            height: 200px;
+            align-content: space-between;
+            flex-direction: column;
+
+        }
+        .flex-item {
+            text-align: center;
+            font-size: 16px;
+            padding: 10px;
+            color: white;
+        }
+        .item1 {background-color: #675BA7;}
+        .item2 {background-color: #9BC850;}
+        .item3 {background-color: #A62E5C;}
+        .item4 {background-color: #2A9FBC;}
+        .item5 {background-color: #F15B2A;}
+    </style>
+</head>
+<body>
+<div id="header"><h1>Выравнивание строк и столбцов. align-content</h1></div>
+<div id="wrapper">
+    <div id="menu"></div>
+    <div id="main">
+        <p>Свойство <b>align-content</b> управляет выравниванием рядов (строк и столбцов) во flex-контейнере и поэтому применяется, если свойство flex-wrap имеет значение wrap или wrap-reverse. Свойство align-content может иметь следующие значения:</p>
+        <ul>
+            <li><b>stretch</b>: значение по умолчанию, при котором строки (столбцы) растягиваются, занимая все свободное место</li>
+            <li><b>flex-start</b>: строки (столбцы) выравниваются по началу контейнера (для строк - это верхний край, для столбцов - это левый край контейнера)</li>
+            <li><b>flex-end</b>: строки (столбцы) выравниваются по концу контейнера (строки - по нижнему краю, столбцы - по правому краю)</li>
+            <li><b>center</b>: строки (столбцы) позиционируются по центру контейнера</li>
+            <li><b>space-between</b>: строки (столбцы) равномерно распределяются по контейнеру, а между ними образуются одинаковые отступы. Если же имеющегося в контейнере места недостаточно, то действует аналогично значению flex-start</li>
+            <li><b>space-around</b>: строки (столбцы) равным образом распределяют пространство контейнера, а растояние между первой и последней строкой (столбцом) и границами контейнера составляет половину расстояния между соседними строками (столбцами).</li>
+        </ul>
+        <p>Стоит учитывать, что это свойство имеет смысл, если в контейнере две и больше строки (столбца).</p>
+        <p>Например, расположение строк в начале контейнера:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px #ccc solid;
+                flex-wrap: wrap;
+                height:200px;
+                align-content: flex-start;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 16px;
+                padding: 10px;
+                color: white;
+            }
+            .item1 {background-color: #675BA7;}
+            .item2 {background-color: #9BC850;}
+            .item3 {background-color: #A62E5C;}
+            .item4 {background-color: #2A9FBC;}
+            .item5 {background-color: #F15B2A;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item item1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item item2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item item3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item item4">Flex Item 4&lt;/div>
+            &lt;div class="flex-item item5">Flex Item 5&lt;/div>
+            &lt;div class="flex-item item1">Flex Item 6&lt;/div>
+            &lt;div class="flex-item item2">Flex Item 7&lt;/div>
+            &lt;div class="flex-item item3">Flex Item 8&lt;/div>
+        &lt;/div>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="flex-container">
+            <div class="flex-item item1">Flex Item 1</div>
+            <div class="flex-item item2">Flex Item 2</div>
+            <div class="flex-item item3">Flex Item 3</div>
+            <div class="flex-item item4">Flex Item 4</div>
+            <div class="flex-item item5">Flex Item 5</div>
+            <div class="flex-item item1">Flex Item 6</div>
+            <div class="flex-item item2">Flex Item 7</div>
+            <div class="flex-item item3">Flex Item 8</div>
+        </div>
+        <p>Изменим стиль контейнера:</p>
+        <div class="codeblock">
+            <pre>
+.flex-container {
+    display: flex;
+    border:1px #ccc solid;
+    flex-wrap: wrap;
+    height:200px;
+    align-content: space-between;
+    flex-direction: column;
+}
+            </pre>
+        </div>
+        <p>И в этом случае мы получим ряд столбцов, разделенных отступами:</p>
+        <div class="flex-container1">
+            <div class="flex-item item1">Flex Item 1</div>
+            <div class="flex-item item2">Flex Item 2</div>
+            <div class="flex-item item3">Flex Item 3</div>
+            <div class="flex-item item4">Flex Item 4</div>
+            <div class="flex-item item5">Flex Item 5</div>
+            <div class="flex-item item1">Flex Item 6</div>
+            <div class="flex-item item2">Flex Item 7</div>
+            <div class="flex-item item3">Flex Item 8</div>
+        </div>
+    </div>
+</div>
+<div id="footer">Глава 12, тема 7 <a href="https://metanit.com/web/html5/12.7.php">Metanit</a></div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_8</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-container {
+            display: flex;
+            border: 1px solid #ccc;
+
+        }
+        .flex-container1 {
+            display: flex;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+        .flex-container600px {
+            display: flex;
+            border: 1px solid #ccc;
+            width: 600px;
+        }
+        .flex-container500px {
+            display: flex;
+            border: 1px solid #ccc;
+            width: 500px;
+        }
+        .flex-container700px {
+            display: flex;
+            border: 1px solid #ccc;
+            width: 700px;
+        }
+        .flex-item {
+            text-align: center;
+            font-size: 1em;
+            padding: 1.2em;
+            color: white;
+        }
+        .item1 {background-color: #6758A7; flex-basis: auto; width: 150px}
+        .item2 {background-color: #9BC850; flex-basis: auto; width: auto}
+        .item3 {background-color: #A62E5C; flex-basis: 200px; width: 150px;}
+        .item11 {background-color: #6758A7; flex-basis: 200px; flex-shrink: 1}
+        .item22 {background-color: #9BC850; flex-basis: 200px; flex-shrink: 2}
+        .item33 {background-color: #A62E5C; flex-basis: 200px; flex-shrink: 3}
+        .item111 {background-color: #6758A7; flex-grow: 0;}
+        .item222 {background-color: #9BC850; flex-grow: 1;}
+        .item333 {background-color: #A62E5C; flex-grow: 2;}
+        .item1111 {background-color: #675BA7; width: 150px; flex: 0 0 auto }
+        .item2222 {background-color: #9BC850; width: 150px; flex: 1 0 auto;}
+        .item3333 {background-color: #A62E5C; width: 150px; flex: 0 1 auto;}
+        .item4444 {background-color: #2A9FBC; width: 150px; flex: 1 1 auto;}
+    </style>
+</head>
+<body>
+<div id="header"><h1>Управление элементами. flex-basis, flex-shrink и flex-grow</h1></div>
+<div id="wrapper">
+    <div id="menu">
+        <ul class="nav">
+            <li><a href="#zakl1">Flex-basis</a></li>
+            <li><a href="#zakl2">Flex-shrink</a></li>
+            <li><a href="#zakl3">Flex-grow</a></li>
+            <li><a href="#zakl4">Свойство Flex</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <p>Кроме свойств, устанавливающих выравнивание элементов относительно границ flex-контейнера, есть еще три свойства, которые позволяют управлять элементами:</p>
+        <ul>
+            <li><b>flex-basis</b>: определяет начальный размер flex-элемента</li>
+            <li><b>flex-shrink</b>: определяет, как flex-элемент будет уменьшаться относительно других flex-элементов во flex-контейнере</li>
+            <li><b>flex-grow</b>: определяет, как flex-элемент будет увеличиваться относительно других flex-элементов во flex-контейнере</li>
+        </ul>
+        <h3 id="zakl1">flex-basis</h3>
+        <p>Flex-контейнер может увеличиваться или уменьшаться вдоль своей центральной оси, например, при изменении размеров браузера, если контейнер имеет нефиксированные размеры. И вместе с контейнером также могут увеличиваться и уменьшаться его flex-элементы. Свойство <b>flex-basis</b> определяет начальный размер flex-элемента до того, как он начнет изменять размер, подстраиваясь под размеры flex-контейнера.</p>
+        <p>Это свойство может принимать следующие значения:</p>
+        <ul>
+            <li>auto: начальный размер flex-элемента устанавливается автоматически</li>
+            <li>content: размер flex-элемента определяется по его содержимому, в то же время это значение поддерживается не всеми современными браузерами, поэтому его пока стоит избегать</li>
+            <li>числовое значение: мы можем установить конкретное числовое значение для размеров элемента</li>
+        </ul>
+        <p>Например:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px #ccc solid;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.2em;
+                color: white;
+            }
+            .item1 {background-color: #675BA7; flex-basis: auto; width:150px;}
+            .item2 {background-color: #9BC850; flex-basis: auto; width:auto;}
+            .item3 {background-color: #A62E5C; flex-basis: 200px;width:150px;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item item1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item item2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item item3">Flex Item 3&lt;/div>
+        &lt;/div>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="flex-container">
+            <div class="flex-item item1">Flex item 1</div>
+            <div class="flex-item item2">Flex item 2</div>
+            <div class="flex-item item3">Flex item 3</div>
+        </div>
+        <p>У первого элемента у свойства flex-basis установлено значение auto. Поэтому первый элемент в качестве реального значения для ширины будет использовать значение свойства width.</p>
+        <p>У второго элемента у свойства flex-basis установлено значение auto, однако и свойство width имеет значение auto. Поэтому реальная ширина элемента будет устанавливаться по его содержимому.</p>
+        <p>У третьего элемента свойство flex-basis имеет конкретное значение, которое и используется. А свойство width в этом случае уже не играет никакой роли.</p>
+        <h3 id="zakl2">flex-shrink</h3>
+        <p>Если flex-контейнер имеет недостаточно места для размещения элемента, то дальнейшее поведение этого элемента мы можем определить с помощью свойства <b>flex-shrink</b>. Оно указывает, как элемент будет усекаться относительно других элементов.</p>
+        <p>В качестве значения свойство принимает число. По умолчанию его значение 1.</p>
+        <p>Рассмотрим действие этого свойства на примере:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px #ccc solid;
+                width:400px;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.2em;
+                color: white;
+            }
+            .item1 {background-color: #675BA7; flex-basis: 200px; flex-shrink:1;}
+            .item2 {background-color: #9BC850; flex-basis: 200px; flex-shrink:2;}
+            .item3 {background-color: #A62E5C; flex-basis: 200px; flex-shrink:3;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item item1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item item2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item item3">Flex Item 3&lt;/div>
+        &lt;/div>
+&lt;/html>
+            </pre>
+        </div>
+        <div class="flex-container1">
+            <div class="flex-item item11">Flex item 1</div>
+            <div class="flex-item item22">Flex item 2</div>
+            <div class="flex-item item33">Flex item 3</div>
+        </div>
+        <p>В данном случае начальная ширина каждого элемента равна 200px, то есть совокупная ширина составляет 600px. Однако ширина flex-контейнера составляет всего 400px. То есть размер контейнера недостаточен для вмещения в него элементов, поэтому в действие вступает свойство flex-shrink, которое определено у элементов.</p>
+        <p>Для усечения элементов браузер вычисляет коэффициент усечения (shrinkage factor). Он вычисляется путем перемножения значения свойства flex-basis на flex-shrink. Таким образом, для трех элементов мы получим следующие вычисления:</p>
+        <div class="codeblock">
+            <pre>
+// первый элемент
+200px * 1 = 200
+// второй элемент
+200px * 2 = 400
+// третий элемент
+200px * 3 = 600
+            </pre>
+        </div>
+        <p>Таким образом, мы получаем, что для второго элемента коэффициент усечения в два раза больше, чем коэффициент для первого элемента. А для третьего элемента коэффициент больше в три раза, чем у первого элемента. Поэтому в итоге первый элемент при усечении будет в три раза больше, чем третий и в два раза больше, чем второй.</p>
+        <h3 id="zakl3">flex-grow</h3>
+        <p>Свойство <b>flex-grow</b> управляет расширением элементов, если во flex-контейнере есть дополнительное место. Данное свойство во многом похоже на свойство flex-shrink за тем исключением, что работает в сторону увеличения элементов.</p>
+        <p>В качестве значения свойство flex-grow принимает положительное число, которое указывает, во сколько раз элемент будет увеличиваться относительно других элементов при увеличении размеров flex-контейнера. По умолчанию свойство flex-grow равно 0.</p>
+        <p>Итак, используем свойство flex-grow:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px #ccc solid;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+                padding: 1.3em;
+                color: white;
+            }
+            .item1 {background-color: #675BA7; flex-grow:0;}
+            .item2 {background-color: #9BC850; flex-grow:1;}
+            .item3 {background-color: #A62E5C; flex-grow:2;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item item1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item item2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item item3">Flex Item 3&lt;/div>
+        &lt;/div>
+&lt;/html>
+            </pre>
+        </div>
+        <p>Итак, для каждого элемента есть базовые начальные размеры. Здесь явным образом размеры для элементов не указаны, поэтому размер каждого элемента в данном случае будет складываться из размеров внутреннего содержимого, к которым добавляются внутренние отступы.</p>
+        <div class="flex-container">
+            <div class="flex-item item111">Flex item 1</div>
+            <div class="flex-item item222">Flex item 2</div>
+            <div class="flex-item item333">Flex item 3</div>
+        </div>
+        <p>По мере растягивания контейнера будут увеличиваться элементы в соответствии со свойством flex-grow, которое указано для каждого элемента. Пространство, на которое растягивается контейнер, считается дополнительным пространством.</p>
+        <p>Так как у первого элемента свойство flex-grow равно 0, то первый элемент будет иметь константные постоянные размеры. У второго элемента flex-grow равно 1, а третьего - 2. Таким образом, в сумме они дадут 0 + 1 + 2 = 3. Поэтому второй элемент будет увеличиваться на 1/3 дополнительного пространства, на которое растягивается контейнер, а третий элемент будет получать 2/3 дополнительного пространства.</p>
+        <h3 id="zakl4">Свойство flex</h3>
+        <p>Свойство flex является объединением свойств flex-basis, flex-shrink и flex-grow и имеет следующий формальный синтаксис:</p>
+        <div class="codeblock">
+            <pre>
+                flex: [flex-grow] [flex-shrink] [flex-basis]
+            </pre>
+        </div>
+        <p>По умолчанию свойство flex имеет значение 0 1 auto.</p>
+        <p>Кроме конкретных значений для каждого из подсвойств мы можем задать для свойства flex одно из трех общих значений:</p>
+        <ul>
+            <li>flex: none: эквивалентно значению 0 0 auto, при котором flex-элемент не растягивается и не усекается при увеличении и уменьшении контейнера</li>
+            <li>flex: auto: эквивалентно значению 1 1 auto</li>
+            <li>flex: initial: эквивалентно значению 0 1 auto</li>
+        </ul>
+        <p>Так, применим свойство flex:</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Flexbox в CSS3&lt;/title>
+        &lt;style>
+            .flex-container {
+                display: flex;
+                border:1px #ccc solid;
+                width: 600px;
+            }
+            .flex-item {
+                text-align:center;
+                font-size: 16px;
+                padding: 10px 0;
+                color: white;
+            }
+            .item1 {background-color: #675BA7; width: 150px; flex: 0 0 auto }
+            .item2 {background-color: #9BC850; width: 150px; flex: 1 0 auto;}
+            .item3 {background-color: #A62E5C; width: 150px; flex: 0 1 auto;}
+            .item4 {background-color: #2A9FBC; width: 150px; flex: 1 1 auto;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="flex-container">
+            &lt;div class="flex-item item1">Flex Item 1&lt;/div>
+            &lt;div class="flex-item item2">Flex Item 2&lt;/div>
+            &lt;div class="flex-item item3">Flex Item 3&lt;/div>
+            &lt;div class="flex-item item4">Flex Item 4&lt;/div>
+        &lt;/div>
+&lt;/html>
+            </pre>
+        </div>
+        <h4>width 600px</h4>
+        <div class="flex-container600px">
+            <div class="flex-item item1111">Flex Item 1</div>
+            <div class="flex-item item2222">Flex Item 2</div>
+            <div class="flex-item item3333">Flex Item 3</div>
+            <div class="flex-item item4444">Flex Item 4</div>
+        </div>
+        <h4>width 500px</h4>
+        <div class="flex-container500px">
+            <div class="flex-item item1111">Flex Item 1</div>
+            <div class="flex-item item2222">Flex Item 2</div>
+            <div class="flex-item item3333">Flex Item 3</div>
+            <div class="flex-item item4444">Flex Item 4</div>
+        </div>
+        <h4>width 700px</h4>
+        <div class="flex-container700px">
+            <div class="flex-item item1111">Flex Item 1</div>
+            <div class="flex-item item2222">Flex Item 2</div>
+            <div class="flex-item item3333">Flex Item 3</div>
+            <div class="flex-item item4444">Flex Item 4</div>
+        </div>
+        <p>Здесь каждый элемент имеет начальную ширину в 150 пикселей, так как у всех элементов свойство flex-basis имеет значение 0, что в целом для всех элементов будет составлять 600 пикселей.</p>
+        <p>При сжатии контейнера будут уменьшаться 3-й и 4-й элементы, так как у них свойство flex-shrink больше нуля. И так как у обоих элементов это свойство равно 1, то оба элемента будут уменьшаться в равных долях.</p>
+        <p>При растяжении контейнера будут увеличиваться 2-й и 4-й элементы, так как у этих элементов свойство flex-grow больше нуля. И также, так как это свойство равно 1, то эти элементы будут увеличиваться в равных долях.</p>
+    </div>
+</div>
+<div id="footer">Тема 12, глава 8 <a href="https://metanit.com/web/html5/12.8.php">Metanit</a></div>
+</body>
+</html>

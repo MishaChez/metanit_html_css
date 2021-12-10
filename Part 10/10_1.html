@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10_1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header"><h1>Мультимедиа</h1></div>
+<div id="wrapper">
+    <div id="menu">
+        <ul class="nav">
+            <li><a href="#zakl1">Видео</a></li>
+            <li><a href="#zakl2">Атрибут preload</a></li>
+            <li><a href="#zalk3">Атрибут poster</a></li>
+            <li><a href="#zakl4">Поддежка форматов видео</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <h3 id="zakl1">Видео</h3>
+        <p>Для воспроизведения видео в HTML5 используется элемент <b>video</b>. Чтобы настроить данный элемент, мы можем использовать следующие его атрибуты:</p>
+        <ul>
+            <li><b>src:</b> источник видео, это может быть какой-либо видеофайл</li>
+            <li><b>width:</b> ширина элемента</li>
+            <li><b>height</b>: высота элемента</li>
+            <li><b>controls</b>: добавляет элементы управления воспроизведением</li>
+            <li><b>autoplay</b>: устанавливает автовоспроизведение</li>
+            <li><b>loop</b>: задает повторение видео</li>
+            <li><b>muted</b>: отключает звук по умолчанию</li>
+        </ul>
+        <p>Хотя мы можем установить ширину и высоту, но они не окажут никакого влияния на аспектное отношения ширины и высоты самого видео. Например, если видео имеет формат 375×240, то, к примеру, при настройках width="375" height="280" видео будет центрироваться на 280-пиксельном пространстве в HTML. Что позволяет избавить видео от искажений, которые были бы при растягивании.</p>
+        <div class="codeblock">
+            <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;title>Видео в HTML5&lt;/title>
+    &lt;/head>
+    &lt;body>
+        &lt;video src="cats.mp4" width="400" height="300" controls >&lt;/video>
+    &lt;/body>
+&lt;/html>
+            </pre>
+        </div>
+        <video src="1.mp4" width="800" height="650" controls></video>
+        <p>Применим атрибуты autoplay и loop:</p>
+        <div class="codeblock">
+            <p>&lt;video src="cats.mp4" width="400" height="300" controls autoplay loop >&lt;/video></p>
+        </div>
+        <p>Теперь видео будет автоматически проигрываться бесконечное число раз.</p>
+        <p>Если при воспроизведении надо отключить звук, то мы можем воспользоваться атрибутом muted:</p>
+        <div class="codeblock">
+            <p>&lt;video src="cats.mp4" width="400" height="300" controls muted >&lt;/video></p>
+        </div>
+        <h3 id="zakl2">Атрибут preload</h3>
+        <p>Еще один атрибут - <b>preload</b> призван управлять загрузкой видео. Он принимает следующие значения:</p>
+        <ul>
+            <li><b>auto</b>: видео и связанные с ним метаданные будут загружаться до того, как видео начнет воспроизводиться.</li>
+            <li><b>none</b>: видео не будет загружаться в фоне, пока пользователь не нажмет на кнопку начала проигрывания</li>
+            <li><b>metadata</b>: в фоне до воспроизведения будут загружаться только метаданные (данные о формате, длительности и т.д), само видео не загружается</li>
+        </ul>
+        <div class="codeblock">
+            <p>&lt;video src="cats.mp4" width="400" height="300" controls preload="auto">&lt;/video></p>
+        </div>
+        <h3 id="zakl3">Атрибут poster</h3>
+        <p>Атрибут poster позволяет установить изображение, которое будет отображаться до запуска видео. Этому атрибуту в качестве значения передается путь к изображению:</p>
+        <div class="codeblock">
+            <p>
+                &lt;src="cats.mp4" width="400" height="300" controls poster="mycat.jpg">&lt;/video>
+            </p>
+        </div>
+        <h3 id="zakl4">Поддержка форматов видео</h3>
+        <p>Главной проблемой при использовании элемента <b>video</b> является поддержка различными веб-браузерами определенных форматов. С помощью вложенных элементов <b>source</b> можно задать несколько источников видео, один из которых будет использоваться:</p>
+        <div class="codeblock">
+            <pre>
+    &lt;width="400" height="300" controls>
+    &lt;source src="cats.mp4" type="video/mp4">
+    &lt;source src="cats.webm" type="video/webm">
+    &lt;source src="cats.ogv" type="video/ogg">
+    &lt;/video>
+            </pre>
+        </div>
+        <p>Элемент source использует два атрибута для установки источника видео:</p>
+        <ul>
+            <li><b>src:</b> путь к видеофайлу</li>
+            <li><b>type</b>: тип видео (MIME-тип)</li>
+        </ul>
+        <p>Если браузер не поддерживает первый тип видео, то он пытается загрузить второй видеофайл. Если же и тип второго видеофайла не поддерживается, то браузер обращается к третьему видеофайлу.</p>
+    </div>
+</div>
+<div id="footer">Глава 10, тема 1 <a href="https://metanit.com/web/html5/7.1.php">Metanit</a></div>
+</body>
+</html>
