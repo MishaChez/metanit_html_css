@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .grid-container-columns {
+            border: 2px solid #000000;
+            display: grid;
+            grid-template-columns: 8em 8em;
+        }
+        .grid-container-columns1 {
+            border: 2px solid #000000;
+            display: grid;
+            grid-template-columns: 8em 7em 8em;
+        }
+
+        .grid-container {
+            border: solid 2px #000;
+            display: grid;
+            grid-template-columns: 8em 8em 8em;
+            grid-template-rows: 5em 5em 5em 5em;
+        }
+
+        .grid-container-rows {
+            border: 2px solid #000000;
+            display: grid;
+            grid-template-rows: 4em 5em;
+        }
+
+        .grid-item {
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 1.1em;
+            padding: 1.5em;
+            color: white;
+        }
+
+        .color1 {background-color: #6758A7}
+        .color2 {background-color: #9BC850}
+        .color3 {background-color: #A62E5C}
+        .color4 {background-color: #2A9FBC}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Строки и столбцы</h1>
+    </header>
+    <main>
+        <article>
+            <p>Грид образует сетку из строк и столбцов, на пересечении которых образуются ячейки. И для установки строк и столбцов в Grid Layout использовать следующие свойства CSS3:</p>
+            <ul>
+                <li><b>grid-template-columns</b>: настраивает столбцы</li>
+                <li><b>grid-template-rows</b>: настраивает строки</li>
+            </ul>
+            <h3 id="zakl1">Столбцы</h3>
+            <p>Для определения столбцов используем у grid-контейнера стилевое свойство <b>grid-template-columns</b>. Например, определим грид с двумя столбцами:</p>
+            <div class="codeblock">
+                <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;meta name="viewport" content="width=device-width" />
+        &lt;title>Grid Layout в CSS3&lt;/title>
+        &lt;style>
+            .grid-container {
+                border: solid 2px #000;
+                display: grid;
+                grid-template-columns: 8em 8em;
+            }
+
+            .grid-item {
+                box-sizing: border-box;
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="grid-container">
+            &lt;div class="grid-item color1">Grid Item 1&lt;/div>
+            &lt;div class="grid-item color2">Grid Item 2&lt;/div>
+            &lt;div class="grid-item color3">Grid Item 3&lt;/div>
+            &lt;div class="grid-item color4">Grid Item 4&lt;/div>
+            &lt;div class="grid-item color1">Grid Item 5&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+                </pre>
+            </div>
+            <p>В качестве значения свойству <b>grid-template-columns</b> передается ширина столбцов. Сколько мы хотим иметь в гриде столбцов, столько и нужно передать значений этому свойству. Так, в случае выше грид содержит два столбца, поэтому свойству передаются два значения, которые указывают ширину столбцов:</p>
+            <div class="grid-container-columns">
+                <div class="grid-item color1">Grid Item 1</div>
+                <div class="grid-item color2">Grid Item 2</div>
+                <div class="grid-item color3">Grid Item 3</div>
+                <div class="grid-item color4">Grid Item 4</div>
+                <div class="grid-item color1">Grid Item 5</div>
+            </div>
+            <p>Соответственно если мы хотим, чтобы в гриде было три столбца, то нам надо передать три значения, например:</p>
+            <div class="codeblock">
+                <pre>
+grid-template-columns: 8em 7em 8em;
+                </pre>
+            </div>
+            <div class="grid-container-columns1">
+                <div class="grid-item color1">Grid Item 1</div>
+                <div class="grid-item color2">Grid Item 2</div>
+                <div class="grid-item color3">Grid Item 3</div>
+                <div class="grid-item color4">Grid Item 4</div>
+                <div class="grid-item color1">Grid Item 5</div>
+            </div>
+            <p>Если столбцов больше чем элементов, то по умолчанию для их вмещения создаются новые строки.</p>
+            <h3 id="zakl2">Строки</h3>
+            <p>Настойка строк во многом аналогичная настройке столбцов. Для этого у грид-контейнера необходимо установить свойство <b>grid-template-rows</b>, которое задает количество и размеры строк:</p>
+            <div class="codeblock">
+                <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;meta name="viewport" content="width=device-width" />
+        &lt;title>Grid Layout в CSS3&lt;/title>
+        &lt;style>
+            .grid-container {
+                border: solid 2px #000;
+                display: grid;
+                grid-template-rows: 4em 5em;
+            }
+            .grid-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="grid-container">
+            &lt;div class="grid-item color1">Grid Item 1&lt;/div>
+            &lt;div class="grid-item color2">Grid Item 2&lt;/div>
+            &lt;div class="grid-item color3">Grid Item 3&lt;/div>
+            &lt;div class="grid-item color4">Grid Item 4&lt;/div>
+            &lt;div class="grid-item color1">Grid Item 5&lt;/div>
+            &lt;div class="grid-item color4">Grid Item 6&lt;/div>
+            &lt;div class="grid-item color3">Grid Item 7&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+                </pre>
+            </div>
+            <p>Свойству <b>grid-template-rows</b> передается высота каждой из строк. Так, в данном случае высота первой строки составляет 4em, а второй - 5em.</p>
+            <div class="grid-container-rows">
+                <div class="grid-item color1">Grid Item 1</div>
+                <div class="grid-item color2">Grid Item 2</div>
+                <div class="grid-item color3">Grid Item 3</div>
+                <div class="grid-item color4">Grid Item 4</div>
+                <div class="grid-item color1">Grid Item 5</div>
+                <div class="grid-item color4">Grid Item 6</div>
+                <div class="grid-item color3">Grid Item 7</div>
+            </div>
+            <p>В то же время, если элементов больше, чем ячеек грида, то образуются дополнительные строки (как в случае со столбцами). Поэтому, несмотря на то, что выше были определены настройки только для двух строк, в реальности строк в гриде будет три строки, причем, как видно на скриншоте, высота третьей строки необязательно будет 5em, как у других строк, она будет вычисляться автоматически.</p>
+            <p>Изменим стили grid-контейнера, добавив еще две строки:</p>
+            <div class="codeblock">
+                <pre>
+.grid-container {
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: 8em 8em 8em;
+    grid-template-rows: 5em 5em 5em 5em;
+}
+                </pre>
+            </div>
+            <p>Здесь определено три столбца и четыре строки:</p>
+            <div class="grid-container">
+                <div class="grid-item color1">Grid Item 1</div>
+                <div class="grid-item color2">Grid Item 2</div>
+                <div class="grid-item color3">Grid Item 3</div>
+                <div class="grid-item color4">Grid Item 4</div>
+                <div class="grid-item color1">Grid Item 5</div>
+                <div class="grid-item color4">Grid Item 6</div>
+                <div class="grid-item color3">Grid Item 7</div>
+            </div>
+            <p>И поскольку ячеек грида больше, чем элементов, то последняя строка оказывается пустой.</p>
+        </article>
+        <nav>
+            <ul class="nav">
+                <li><a href="#zakl1">Столбцы</a></li>
+                <li><a href="#zakl2">Строки</a></li>
+            </ul>
+        </nav>
+        <aside>
+            <p>11.12.2021</p>
+            <p>19:38</p>
+        </aside>
+    </main>
+    <footer>
+<p>Глава 13, тема 2. <a href="https://metanit.com/web/html5/13.2.php">Metanit.com</a></p>
+    </footer>
+</body>
+</html>

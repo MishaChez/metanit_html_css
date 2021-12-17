@@ -1,0 +1,96 @@
+@font-face {
+
+    font-family: 'Roboto';
+    src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+}
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto;
+}
+
+body {
+    color: #ffffff;
+    font-size: 1.1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    background-color: #546e7a;
+    flex: 2 2 12em;
+    padding: 1em;
+}
+
+nav, aside {
+    flex: 1;
+    background-color: #455a64;
+}
+nav {
+    order: -1;
+}
+
+header, footer {
+    flex: 0 0 5em;
+    background-color: #37474f;
+}
+
+@media screen and (min-width: 600px) {
+
+    body {
+        min-height: 100vh;
+    }
+    main {
+        flex-direction: row;
+        min-height: 100%;
+        flex: 1 1 auto;
+    }
+}
+div.codeblock {
+    border: dashed 1px #634F36;
+    background-color: #fffff5;
+    font-family: "Courier New", Courier, monospace;
+    padding: 7px;
+    font-size: 80%;
+    margin: 0 0 1em;  /*&lt; &gt;*/
+    width: 450px;
+    color: #222222;
+}
+
+ul.nav {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+ul.nav a {
+    display: flex;
+
+
+    border-top: 1px dashed #333;
+    border-right: 1px dashed #333;
+    border-left: 5px solid #333;
+    text-decoration: none;
+    color: wheat;
+}
+ul.nav li:last-child a {
+    border-bottom: 1px dashed #333;
+}
+.nav:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+.nav a:hover {
+    background-color: #333333;
+    color: #cccccc;
+}

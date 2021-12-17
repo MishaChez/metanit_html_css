@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_11_2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        .grid-container {
+            height: 100vh;
+            display: grid;
+            grid-template-areas: "header header header header header"
+                                    ". . . . ."
+                                    "menu . content . sidebar"
+                                    ". . . . ."
+                                    "footer footer footer footer footer";
+            grid-template-columns: 130px 5px 1fr 5px 130px;
+            grid-template-rows: 90px 5px 1fr 5px 90px;
+        }
+        .header {grid-area: header; background-color: #bbbbbb}
+        .menu {grid-area: menu; background-color: #cccccc}
+        .sidebar {grid-area: sidebar; background-color: #cccccc}
+        .content {grid-area: content; background-color: #eeeeee}
+        .footer {grid-area: footer; background-color: #bbbbbb}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="header"><h1>header</h1></div>
+        <div class="content"><h1>content</h1></div>
+        <div class="menu"><h1>menu</h1></div>
+        <div class="sidebar"><h1>sidebar</h1></div>
+        <div class="footer"><p>Глава 13, тема 11 <a href="https://metanit.com/web/html5/13.11.php">Metanit.com</a></p></div>
+    </div>
+</body>
+</html>

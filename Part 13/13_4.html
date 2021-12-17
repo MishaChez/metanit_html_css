@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_4</title>
+  <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Размеры строк и столбцов</h1>
+    </header>
+    <main>
+        <nav>
+            <ul class="nav">
+                <li><a href="#zakl1">Фиксированные размеры</a></li>
+                <li><a href="#zakl2">Автоматические размеры</a></li>
+                <li><a href="#zakl3">Пропорциональные размеры</a></li>
+            </ul>
+        </nav>
+        <aside>
+            <h3 id="zakl1">Фиксированные размеры</h3>
+            <p>В примерах, которые были рассмотрены в предыдущих статьях, ширина столбцов и длина строк устанавливались на основании фиксированных значений, которые передаются свойствам grid-template-columns и grid-template-rows. Для определения размеров мы можем использовать самые различные единицы измерения, которые нам доступны в CSS (px, em, rem, pt, %), например:</p>
+            <div class="codeblock">
+                <pre>
+.grid-container {
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 4.5em);
+}
+                </pre>
+            </div>
+            <h3 id="zakl2">Автоматические размеры</h3>
+            <p>Кроме точных размеров можно задавать автоматические размеры с помощью слова auto. В этом случае ширина столбцов и высота строк вычисляются исходя из размеров содержимого:</p>
+            <div class="codeblock">
+                <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;meta name="viewport" content="width=device-width" />
+        &lt;title>Grid Layout в CSS3&lt;/title>
+        &lt;style>
+            .grid-container {
+                border: solid 2px #000;
+                display: grid;
+                grid-template-columns: 8em auto auto;
+                grid-template-rows: auto 4.5em auto;
+            }
+            .grid-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #4e342e;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="grid-container">
+            &lt;div class="grid-item color1">Grid Item 1&lt;/div>
+            &lt;div class="grid-item color2">Grid Item 2&lt;/div>
+            &lt;div class="grid-item color3">Grid Item 3&lt;/div>
+            &lt;div class="grid-item color4">Grid Item 4&lt;/div>
+            &lt;div class="grid-item color5">Grid Item 5&lt;/div>
+            &lt;div class="grid-item color1">Grid Item 6&lt;/div>
+            &lt;div class="grid-item color2">Grid Item 7&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+                </pre>
+            </div>
+            <p>Здесь задано три строки и ти столбца. Первый столбец имеет фиксированную ширину в 8em, а второй и третий столбцы - автоматическую ширину. И также первая и третья строки имеют автоматическую высоту, а вторая строка - фиксированную.</p>
+            <h3 id="zakl3">Пропорциональные размеры</h3>
+            <p>Для установки пропорциональных размеров применяется специальная единица измерения fr. Она представляет собой часть пространства (fraction), которое отводится для данного столбца или строки. Значение fr еще называют flex-фактором (flex factor).</p>
+            <p>Вычисление пропорциональных размеров производится по формуле:</p>
+            <div class="codeblock">
+                <pre>
+                    flex-фактор * доступное_пространство  / сумма всех flex-факторов
+                </pre>
+            </div>
+            <p>При этом под доступным пространством понимается все пространство grid-контейнера за исключением фиксированных значений строк и столбцов.</p>
+            <div class="codeblock">
+                <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="utf-8">
+        &lt;meta name="viewport" content="width=device-width" />
+        &lt;title>Grid Layout в CSS3&lt;/title>
+        &lt;style>
+            *{
+                box-sizing: border-box;
+            }
+            html, body{
+                margin:0;
+                padding:0;
+            }
+            .grid-container {
+                height: 100vh;
+                border: solid 2px #000;
+                display: grid;
+                grid-template-columns: 8em 2fr 1fr;
+                grid-template-rows: 1fr 4.5em 1fr;
+            }
+            .grid-item {
+                text-align:center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {background-color: #675BA7;}
+            .color2 {background-color: #9BC850;}
+            .color3 {background-color: #A62E5C;}
+            .color4 {background-color: #2A9FBC;}
+            .color5 {background-color: #4e342e;}
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+        &lt;div class="grid-container">
+            &lt;div class="grid-item color1">Grid Item 1&lt;/div>
+            &lt;div class="grid-item color2">Grid Item 2&lt;/div>
+            &lt;div class="grid-item color3">Grid Item 3&lt;/div>
+            &lt;div class="grid-item color4">Grid Item 4&lt;/div>
+            &lt;div class="grid-item color5">Grid Item 5&lt;/div>
+            &lt;div class="grid-item color1">Grid Item 6&lt;/div>
+            &lt;div class="grid-item color2">Grid Item 7&lt;/div>
+        &lt;/div>
+    &lt;/body>
+&lt;/html>
+                </pre>
+            </div>
+            <p>В данном случае имеются три столбца с шириной 2fr, 8em, 1fr. Поэтому ширина второго столбца будет вычисляться по формуле:</p>
+            <div class="codeblock">
+                <pre>
+                    2 * (ширина_грида - 8em) / (2 + 1)
+                </pre>
+            </div>
+            <p>Ширина третьего столбца будет вычисляться по формуле:</p>
+            <div class="codeblock">
+                <pre>
+                    1 * (ширина_грида - 8em) / (2 + 1)
+                </pre>
+            </div>
+            <p>И если первый столбец фиксированный с шириной 8em, то ширина второго и третьего столбца будут зависеть от ширины контейнера и будут автоматически масштабироваться при ее изменении.</p>
+            <p>В отношении строк все аналогично.</p>
+        </aside>
+        <article>
+            <p>12.12.2021</p>
+        </article>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

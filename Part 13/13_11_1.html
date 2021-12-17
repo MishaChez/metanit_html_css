@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_11</title>
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .grid-container {
+        height: 100vh;
+        display: grid;
+        grid-template-areas: "header header"
+                                "sidebar content"
+                                "sidebar content";
+        grid-template-columns: 150px 1fr;
+        grid-template-rows: 100px 1fr 100px;
+    }
+    .header {grid-area: header; background-color: #bbbbbb}
+    .sidebar {grid-area: sidebar; background-color: #cccccc}
+    .content {grid-area: content; background-color: #eeeeee}
+
+  </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="header"><h1>header</h1></div>
+        <div class="sidebar"><h1>sidebar</h1></div>
+        <div class="content"><h1>content</h1></div>
+    </div>
+</body>
+</html>
